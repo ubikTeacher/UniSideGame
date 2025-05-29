@@ -1,11 +1,12 @@
 using UnityEngine;
-//â†“ã‚·ãƒ¼ãƒ³ã®åˆ‡ã‚Šæ›¿ãˆã«å¿…è¦â†“
+//«ƒV[ƒ“‚ÌØ‚è‘Ö‚¦‚É•K—v«
 using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    //èª­ã¿è¾¼ã‚€ã‚·ãƒ¼ãƒ³å
+    //“Ç‚İ‚ŞƒV[ƒ“–¼
     public string sceneName;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,12 +18,12 @@ public class ChangeScene : MonoBehaviour
     {
         
     }
-    ///<summary>
-    /// ã‚·ãƒ¼ãƒ³èª­ã¿è¾¼ã‚€ç”¨
-    ///</summary>
+
+    /// <summary>
+    /// ƒV[ƒ““Ç‚İ‚Ş—p
+    /// </summary>
     public void Load()
     {
         SceneManager.LoadScene(this.sceneName);
     }
-
 }

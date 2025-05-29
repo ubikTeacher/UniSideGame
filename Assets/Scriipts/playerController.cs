@@ -1,73 +1,73 @@
 using UnityEngine;
-using System. Collections;
-using System. Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
+
 ///<summary>
 ///プレイヤーを操作するクラス
 ///</summary>
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    ///<summary>
+    /// <summary>
     /// ゲームの状態
     /// playing:ゲーム中
     /// gameclear:クリア状態
     /// gameover:ゲームオーバー
-    ///</summary>
+    /// </summary>
     public static string gameState = "playing";
+
+    ///<summary>
     ///プレイヤーの重力部品を入れる変数
-
     private Rigidbody2D rbody;
-
+    ///<summary>
     ///水平方向の入力取得用の変数
-
-    private float inputH=0.0f;
-
     ///<summary>
-    ///ジャンプ力設定用
-    ///</summary>
-    private float jump = 5.0f;
+    private float inputH = 0.0f;
 
-    ///<summary>
-    ///ジャンプが押されたかどうか
+    /// <summary>
+    /// ジャンプ力設定用
+    /// </summary>
+    public float jump = 9.0f;
+
+    /// <summary>
+    /// ジャンプ押されたかどうか
     /// True:ジャンプ False:ジャンプでない
-    ///</summary>
+    /// </summary>
     private bool isJump = false;
 
-    ///<summary>
-    /// groundレイヤー設定
-    ///</summary>
+    /// <summary>
+    /// groundレイヤー設定用
+    /// </summary>
     public LayerMask groundLayer;
 
-    ///<summary>
-    ///アニメーション用の部品
-    ///</summary>
-    private Animator animetor;
-    public string stopAnime = "playerStop";
+    /// <summary>アニメーション用部品</summary>
+    private Animator animator;
+    public string stopAnime = "PlayerStop";
     public string moveAnime = "PlayerMove";
     public string jumpAnime = "PlayerJump";
-    public string goalAnime = "playerGoal";
-    public string overAnime = "playerOver";
+    public string goalAnime = "PlayerGoal";
+    public string overAnime = "PlayerOver";
 
     private string nowAnime = ""; //今のアニメーション
-    private string oldAnime = ""; //1つ前のアニメーション
+    private string oldAnime = ""; //１つ前のアニメーション
 
     public int score = 0; //スコア
 
-    // 始めに1回だけ実行
+    /// 初めに1回だけ実行される
     void Start()
     {
-        //Rigidbody2Dをプライベート変数に入れる
+        //Rigidbody2Dをプライベート変数に入れておく
         this.rbody = this.GetComponent<Rigidbody2D>();
         //Animatorをプライベート変数に入れておく
-        this.animetor = this.GetComponent<Animator>();
+        this.animator = this.GetComponent<Animator>();
 
-        this.nowAnime=this.stopAnime;
-        this.oldAnime=this.stopAnime;
+        this.nowAnime = this.stopAnime;
+        this.oldAnime = this.stopAnime;
 
         //状態をプレイ中に設定
-        gameState = "playing";
+        gameState = "playing"; 
     }
 
-    // 何度も実行
+    // 何度も実行される
     void Update()
     {
         if(gameState!="playing")
@@ -77,166 +77,174 @@ public class playerController : MonoBehaviour
         //水平方向の入力があるかを取得する
         //←を押されたら-1、→を押されたら+1が入る
         this.inputH = Input.GetAxisRaw("Horizontal");
+
         //画像の向きを設定
         if(this.inputH == -1)
         {
             //左に進むとき
             transform.localScale
-            =new Vector2(-1,1);
-            //this.nowAnime=this.moveAnime;
+                = new Vector2(-1, 1);
+            //this.nowAnime = this.moveAnime;
         }
         else if(this.inputH ==1)
         {
             //右に進むとき
             transform.localScale
-            =new Vector2(1,1);
-            //this.nowAnime=this.moveAnime;
+                = new Vector2(1, 1);
+            //this.nowAnime = this.moveAnime;
         }
-        else if(this.inputH==0)
+        else if(this.inputH == 0)
         {
-            //this.nowAnime=this.stopAnime;
+            //this.nowAnime = this.stopAnime;
         }
-
+    
         //ジャンプボタンがおされたか
-        if(Input.GetButtonDown("Jump")==true)
+        if(Input.GetButtonDown("Jump")== true)
         {
             //ジャンプ中に設定
-            this.isJump=true;
+            this.isJump= true; 
         }
     }
 
-    // 一定の間隔で何度も実行
+    //一定の間隔で何度も実行される
     void FixedUpdate()
     {
-        if(gameState!="playing")
+        if (gameState != "playing")
         {
             return;
         }
         this.rbody.linearVelocity
-        =new Vector2(this.inputH*5.0f
-        , this.rbody.linearVelocityY);
+        = new Vector2(this.inputH * 8.0f
+        ,this.rbody.linearVelocityY);
 
         //地面かどうかフラグ
         bool isGround = false;
 
-        isGround=Physics2D.CircleCast(
-            transform.position
-            ,0.2f
-            ,Vector2.down
-            ,0.0f
-            ,this.groundLayer
-        );
-        
-        //ジャンプ中にフラグが立っているかチェック
+        //地面のレイヤーと
+        //接触しているかを取得する
+        isGround = Physics2D.CircleCast(
+               transform.position
+               , 0.2f
+               , Vector2.down
+               , 0.0f
+               , this.groundLayer
+            );
+
+        //ジャンプ中フラグが立っているかチェック
         if(this.isJump==true && isGround==true)
         {
-            //ジャンプボタン押された+地面にいる
+            //ジャンプボタン押された＋地面にいる
 
             //ジャンプのベクトルを作る
             Vector2 jumpPw = new Vector2(0, jump);
-
+            
             //瞬間的にプレイヤーにその力を加える
             this.rbody.AddForce(jumpPw
-            , ForceMode2D.Impulse);
+                , ForceMode2D.Impulse);
 
             //ジャンプ中フラグをまたオフにしておく
-            this.isJump=false;
+            this.isJump= false; 
         }
 
         //アニメーション設定
-        if(isGround==true)
+        if (isGround == true)
         {
             //地面にいる
             if(this.inputH==0)
             {
-                this.nowAnime=this.stopAnime;
+                this.nowAnime = this.stopAnime;
             }
             else
             {
-                this.nowAnime=this.moveAnime;
+                this.nowAnime = this.moveAnime;
             }
-        }
-        else
+        }else
         {
             //空中にいる
-            this.nowAnime=this.jumpAnime;
+            this.nowAnime = this.jumpAnime;
         }
-        if(this.nowAnime!=this.oldAnime)
+
+        //前回再生したアニメーションと
+        //今回再生するアニメーションが
+        //違っている時だけ再生する
+        if(this.nowAnime != this.oldAnime)
         {
-            this.animetor.Play(this.nowAnime);
+            this.animator.Play(this.nowAnime);
             this.oldAnime = this.nowAnime;
         }
+
     }
-    ///<summary>
-    /// 当たったとき呼び出される
-    ///</summary>
+
+    /// <summary>
+    /// 当たったときに呼び出される
+    /// </summary>
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         //ぶつかった物体のタグがGoalかチェック
-        if(collision.gameObject.tag=="goal")
+        if(collision.gameObject.tag=="Goal")
         {
             GameClear();
         }
-        //ぶつかった物体のタグがDADEかチェック
-        if(collision.gameObject.tag=="DEAD")
+        //ぶつかった物体のタグがDeadかチェック
+        if (collision.gameObject.tag == "Dead")
         {
             GameOver();
         }
         //ぶつかった物体のタグがScoreItemかチェック
-        if(collision.gameObject.tag=="ScoreItem")
+        if (collision.gameObject.tag == "ScoreItem")
         {
             GetItem(collision);
-
         }
     }
 
-    ///<summary>
+    /// <summary>
     /// Itemをゲットしたときの処理
-    ///</summary>
+    /// </summary>
     public void GetItem(Collider2D collision)
     {
-        ItemDate item = collision.gameObject.
-            GetComponent<ItemDate>();
+        ItemData item = collision.gameObject.
+                GetComponent<ItemData>();
 
         this.score = item.value;
 
-        //破棄する(消す)
+        //破棄する（消す）
         Destroy(collision.gameObject);
     }
 
-    ///<summary>
+
+    /// <summary>
     /// ゲームクリアの処理
-    ///</summary>
+    /// </summary>
     public void GameClear()
     {
         Debug.Log("Goal!!");
-        //ゴールアニメーション再生
-        this.animetor.Play(goalAnime);
-        gameState="gameclear";
-        //速度を0にして強制的に停止
-        this.rbody.linearVelocity
-        =new Vector2(0,0);
+        //ゴールのアニメーション再生
+        this.animator.Play(this.goalAnime);
+        gameState = "gameclear";
     }
 
-    ///<summary>
+    /// <summary>
     /// ゲームオーバーの処理
-    ///</summary>
+    /// </summary>
     public void GameOver()
     {
-        Debug.Log("YOUDEAD!!");
+        Debug.Log("GameOver!!");
         //ゲームオーバーのアニメーション再生
-        this.animetor.Play(this.overAnime);
-        gameState="gameover";
+        this.animator.Play(this.overAnime);
+        gameState = "gameover";
+
         //速度を0にして強制的に停止
         this.rbody.linearVelocity
-        =new Vector2(0,0);
+            = new Vector2(0, 0);
 
         //プレイヤーを少し上にあげてから
-        //落とす
-        this.rbody.AddForce(new Vector2(0,5),ForceMode2D.Impulse);
+        //落とす！
+        this.rbody.AddForce(new Vector2(0, 5)
+                        , ForceMode2D.Impulse);
 
-        //プレイヤーのコライダーを無効にする(落ちた時に跳ねる回数を1回にする)
-        GetComponent<CapsuleCollider2D>().enabled = false;
+        //プレイヤーのコライダーを無効にする
+        GetComponent<CapsuleCollider2D>().enabled
+            = false;
     }
 }

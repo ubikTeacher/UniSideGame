@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    //ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã‚’ã™ã‚‹ã‹ã©ã†ã‹
+    //ƒJƒEƒ“ƒgƒ_ƒEƒ“‚ğ‚·‚é‚©‚Ç‚¤‚©
     public bool isCountDown = true;
 
-    //ã‚²ãƒ¼ãƒ ã®æœ€å¤§æ™‚é–“
-    public float gameTime = 60.0f;
+    //ƒQ[ƒ€‚ÌÅ‘åŠÔ
+    public float gameTime = 30.0f;
 
-    //ç¾åœ¨ã®çµŒéæ™‚é–“
+    //Œ»İ‚ÌŒo‰ßŠÔ
     public float displayTime = 0.0f;
 
-    //ã‚¿ã‚¤ãƒ ã‚ªãƒ¼ãƒãƒ¼ã—ãŸã‹ã©ã†ã‹
+    //ƒ^ƒCƒ€ƒI[ƒo[‚µ‚½‚©‚Ç‚¤‚©
     public bool isTimeOver = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,8 +19,8 @@ public class TimeController : MonoBehaviour
     {
         if(this.isCountDown==true)
         {
-            //ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³è¨­å®šãŒtureã®å ´åˆã¯
-            //è¡¨ç¤ºæ™‚é–“ã‚’æœ€å¤§æ™‚é–“ã«è¨­å®š
+            //ƒJƒEƒ“ƒgƒ_ƒEƒ“İ’è‚ªTrue‚Ìê‡‚Í
+            //•\¦ŠÔ‚ğÅ‘åŠÔ‚Éİ’è‚·‚é
             this.displayTime = this.gameTime;
         }
     }
@@ -28,20 +28,23 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //æ™‚é–“åˆ‡ã‚Œãªã‚‰ã‚‚ã†ã‚«ã‚¦ãƒ³ãƒˆã—ãªã„
+        //ŠÔØ‚ê‚È‚ç‚à‚¤ƒJƒEƒ“ƒg‚µ‚È‚¢
         if(this.isTimeOver==true)
         {
             return;
         }
+
         if(this.isCountDown==true)
         {
-            this.displayTime=
-            this.displayTime-Time.deltaTime;
+            this.displayTime =
+                this.displayTime-Time.deltaTime;
+            
+            //•\¦ŠÔ‚ª0‚É‚È‚Á‚½‚çŠÔØ‚ê
             if(this.displayTime<0.0f)
             {
-                this.isTimeOver=true;
+                this.isTimeOver = true;
             }
-            Debug.Log("displayTime:"+this.displayTime);
+            Debug.Log("displayTime:" + this.displayTime);
         }
     }
 }
