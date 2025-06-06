@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec1c01c60b22c064fbf963a0aa5cb737
+guid: fd7d3e96109220f4f8e26cd308b3faa1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3834276301183275000
-    second: heart_transparent_0
+      213: -4869981904021860593
+    second: kabocya2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart_transparent_0
+      name: kabocya2_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 27
-        width: 185
-        height: 171
+        x: 22
+        y: 25
+        width: 113
+        height: 129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 800b549d40ae9cac0800000000000000
-      internalID: -3834276301183275000
+      spriteID: f0f4234b2495a6cb0800000000000000
+      internalID: -4869981904021860593
       vertices: []
       indices: 
       edges: []

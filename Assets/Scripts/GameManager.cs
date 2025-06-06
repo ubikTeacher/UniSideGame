@@ -6,6 +6,10 @@ using TMPro;//TextMeshPro用
 
 public class GameManager : MonoBehaviour
 {
+    //サウンド設定追加
+    public AudioClip acGameOver;//ゲームオーバー
+    public AudioClip acGameClear;//ゲームクリア
+
     //スコア追加
     public GameObject scoreText;  //スコアテキスト格納用
     public static int totalScore; //合計スコア
@@ -50,7 +54,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerController.gameState);
+        //Debug.Log(PlayerController.gameState);
         if(PlayerController.gameState=="gameclear")
         {
             //ゲームクリアになったら
@@ -75,6 +79,16 @@ public class GameManager : MonoBehaviour
             if(this.timeCnt!=null)
             {
                 this.timeCnt.isTimeOver = true;
+            }
+
+            //クリア音再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if(soundPlayer!=null)
+            {
+                //今流しているBGMを止める
+                soundPlayer.Stop();
+                //ゲームクリアの音を鳴らす
+                soundPlayer.PlayOneShot(this.acGameClear);
             }
         }       
         else if (PlayerController.gameState == "gameover")
