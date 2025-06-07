@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec1c01c60b22c064fbf963a0aa5cb737
+guid: 6c8f9176a7bd3c7458bd5b34cef2f986
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3834276301183275000
-    second: heart_transparent_0
+      213: -3103370301310671125
+    second: block_h_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart_transparent_0
+      name: block_h_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 27
-        width: 185
-        height: 171
+        x: 0
+        y: 0
+        width: 116
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 800b549d40ae9cac0800000000000000
-      internalID: -3834276301183275000
+      spriteID: be661ef372d9ee4d0800000000000000
+      internalID: -3103370301310671125
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      heart_transparent_0: -3834276301183275000
+      block_h_0: -3103370301310671125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

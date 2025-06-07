@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kabocya_0: -4144993472690480349
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

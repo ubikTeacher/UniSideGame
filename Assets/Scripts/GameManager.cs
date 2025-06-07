@@ -116,6 +116,16 @@ public class GameManager : MonoBehaviour
             {
                 this.timeCnt.isTimeOver = true;
             }
+
+            //ゲームオーバー音再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //今流しているBGMを止める
+                soundPlayer.Stop();
+                //ゲームクリアの音を鳴らす
+                soundPlayer.PlayOneShot(this.acGameOver);
+            }
         }
         else if(PlayerController.gameState=="playing")
         {

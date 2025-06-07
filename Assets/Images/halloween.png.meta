@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec1c01c60b22c064fbf963a0aa5cb737
+guid: 4977d97d7c41c22439a171e049bdf28e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3834276301183275000
-    second: heart_transparent_0
+      213: 3006779759561359177
+    second: halloween_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart_transparent_0
+      name: halloween_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 27
-        width: 185
-        height: 171
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 800b549d40ae9cac0800000000000000
-      internalID: -3834276301183275000
+      spriteID: 94f3d7eb24a3ab920800000000000000
+      internalID: 3006779759561359177
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      heart_transparent_0: -3834276301183275000
+      halloween_0: 3006779759561359177
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -114,6 +114,7 @@ public class MovingBlock : MonoBehaviour
     }
 
     /// <summary>
+    /// “–‚½‚è”»’è
     /// “–‚½‚Á‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚é
     /// </summary>
     /// <param name="collision"></param>
