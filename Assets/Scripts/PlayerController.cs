@@ -7,6 +7,9 @@ using System.Collections.Generic;
 ///</summary>
 public class PlayerController : MonoBehaviour
 {
+    //タッチスクリーン対応追加
+    bool isMoving = false;
+
     /// <summary>
     /// ゲームの状態
     /// playing:ゲーム中
@@ -74,6 +77,13 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        //移動
+        if(isMoving==false)
+        {
+            this.inputH = Input.GetAxisRaw("Horizontal");
+        }
+
         //水平方向の入力があるかを取得する
         //←を押されたら-1、→を押されたら+1が入る
         this.inputH = Input.GetAxisRaw("Horizontal");
@@ -106,6 +116,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetAxis(float h, float v)
+    {
+        this.inputH = h;
+        if(this.inputH==0)
+        {
+            isMoving = false;
+        }else
+        {
+            isMoving = true;
+        }
+    }
+
     //一定の間隔で何度も実行される
     void FixedUpdate()
     {
@@ -133,17 +155,7 @@ public class PlayerController : MonoBehaviour
         //ジャンプ中フラグが立っているかチェック
         if(this.isJump==true && isGround==true)
         {
-            //ジャンプボタン押された＋地面にいる
-
-            //ジャンプのベクトルを作る
-            Vector2 jumpPw = new Vector2(0, jump);
-            
-            //瞬間的にプレイヤーにその力を加える
-            this.rbody.AddForce(jumpPw
-                , ForceMode2D.Impulse);
-
-            //ジャンプ中フラグをまたオフにしておく
-            this.isJump= false; 
+            Jump();
         }
 
         //アニメーション設定
@@ -175,6 +187,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Jump()
+    {
+        //ジャンプボタン押された＋地面にいる
+
+        //ジャンプのベクトルを作る
+        Vector2 jumpPw = new Vector2(0, jump);
+
+        //瞬間的にプレイヤーにその力を加える
+        this.rbody.AddForce(jumpPw
+            , ForceMode2D.Impulse);
+
+        //ジャンプ中フラグをまたオフにしておく
+        this.isJump = false;
+    }
     /// <summary>
     /// 当たったときに呼び出される
     /// </summary>

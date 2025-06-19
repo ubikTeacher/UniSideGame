@@ -7,6 +7,9 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 UserSettings/
+bin/
+.utmp/
+.vs/
 
 # ========== IDE and Editor folders ==========
 .vscode/

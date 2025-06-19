@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     //タイムコントローラースクリプト格納用
     private TimeController timeCnt;
 
+    //プレイヤー操作
+    public GameObject InputUI;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,6 +60,8 @@ public class GameManager : MonoBehaviour
         //Debug.Log(PlayerController.gameState);
         if(PlayerController.gameState=="gameclear")
         {
+
+            InputUI.SetActive(false);
             //ゲームクリアになったら
             //ゲームクリアの画像を表示する
             mainImage.SetActive(true);
@@ -93,6 +98,8 @@ public class GameManager : MonoBehaviour
         }       
         else if (PlayerController.gameState == "gameover")
         {
+            InputUI.SetActive(false);
+
             //ゲームオーバーになったら
             //ゲームオーバーの画像を表示する
             mainImage.SetActive(true);
@@ -151,6 +158,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Jump()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController playerCnt = player.GetComponent<PlayerController>();
+        playerCnt.Jump();
+    }
+
     /// <summary>
     /// スコアを更新する
     /// </summary>
@@ -160,6 +174,7 @@ public class GameManager : MonoBehaviour
         this.scoreText.GetComponent<TMP_Text>().text
                             = score.ToString();    
     }
+
 
     /// <summary>
     /// メイン画像を非表示にします
