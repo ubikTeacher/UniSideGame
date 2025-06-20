@@ -2992,6 +2992,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 155100669332081751, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: sceneName
+      value: inoue
+      objectReference: {fileID: 0}
     - target: {fileID: 381127450815450036, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
