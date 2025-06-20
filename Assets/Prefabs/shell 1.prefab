@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7815867078464979582}
   - component: {fileID: 3360166913643678536}
+  - component: {fileID: 1813439764433961010}
+  - component: {fileID: 4005174625398061672}
   - component: {fileID: 3939022957747406965}
-  - component: {fileID: 5734226631402518594}
-  - component: {fileID: 1452428377273279507}
   m_Layer: 6
-  m_Name: shell
+  m_Name: shell 1
   m_TagString: Dead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,20 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3939022957747406965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937794552781022883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c29f732400a144883d8e25947537a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deleteTime: 3
---- !u!50 &5734226631402518594
+--- !u!50 &1813439764433961010
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -118,7 +105,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: -3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -130,8 +117,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1452428377273279507
-BoxCollider2D:
+--- !u!58 &4005174625398061672
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,19 +147,22 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.54, y: 0.54}
-    newSize: {x: 0.54, y: 0.54}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.54, y: 0.54}
-  m_EdgeRadius: 0
+  m_Radius: 0.27000004
+--- !u!114 &3939022957747406965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937794552781022883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c29f732400a144883d8e25947537a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteTime: 3

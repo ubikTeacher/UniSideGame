@@ -29,7 +29,12 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// ジャンプ力設定用
     /// </summary>
-    public float jump = 9.0f;
+    public float jump = 5.0f;
+
+    /// <summary>
+    /// スピードスピード設定用
+    /// </summary>
+    public float speed = 8.0f;
 
     /// <summary>
     /// ジャンプ押されたかどうか
@@ -136,7 +141,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         this.rbody.linearVelocity
-        = new Vector2(this.inputH * 8.0f
+        = new Vector2(this.inputH * this.speed
         ,this.rbody.linearVelocityY);
 
         //地面かどうかフラグ
