@@ -1,54 +1,54 @@
 using UnityEngine;
-using UnityEngine.UI; //UI‚Ì•”•ig—p‚µ‚Ä‚¢‚é‚Ì‚Å“ü‚ê‚Ä‚¨‚­
+using UnityEngine.UI; //UIï¿½Ì•ï¿½ï¿½iï¿½gï¿½pï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ì‚Å“ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;//TextMeshPro—p
+using TMPro;//TextMeshProï¿½p
 
 public class GameManager : MonoBehaviour
 {
-    //ƒTƒEƒ“ƒhİ’è’Ç‰Á
-    public AudioClip acGameOver;//ƒQ[ƒ€ƒI[ƒo[
-    public AudioClip acGameClear;//ƒQ[ƒ€ƒNƒŠƒA
+    //ï¿½Tï¿½Eï¿½ï¿½ï¿½hï¿½İ’ï¿½Ç‰ï¿½
+    public AudioClip acGameOver;//ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
+    public AudioClip acGameClear;//ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 
-    //ƒXƒRƒA’Ç‰Á
-    public GameObject scoreText;  //ƒXƒRƒAƒeƒLƒXƒgŠi”[—p
-    public static int totalScore; //‡ŒvƒXƒRƒA
-    public int stageScore = 0;    //ƒXƒe[ƒWƒXƒRƒA
+    //ï¿½Xï¿½Rï¿½Aï¿½Ç‰ï¿½
+    public GameObject scoreText;  //ï¿½Xï¿½Rï¿½Aï¿½eï¿½Lï¿½Xï¿½gï¿½iï¿½[ï¿½p
+    public static int totalScore; //ï¿½ï¿½ï¿½vï¿½Xï¿½Rï¿½A
+    public int stageScore = 0;    //ï¿½Xï¿½eï¿½[ï¿½Wï¿½Xï¿½Rï¿½A
 
-    //ƒQ[ƒ€ƒI[ƒo[—p‰æ‘œİ’è—p
+    //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½pï¿½æ‘œï¿½İ’ï¿½p
     public Sprite gameOverSpr;
-    //ƒQ[ƒ€ƒNƒŠƒA—p‰æ‘œİ’è—p
+    //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½pï¿½æ‘œï¿½İ’ï¿½p
     public Sprite gameClearSpr;
-    //ƒpƒlƒ‹Ši”[—p
+    //ï¿½pï¿½lï¿½ï¿½ï¿½iï¿½[ï¿½p
     public GameObject panel;
-    //ƒŠƒXƒ^[ƒgƒ{ƒ^ƒ“Ši”[—p
+    //ï¿½ï¿½ï¿½Xï¿½^ï¿½[ï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½iï¿½[ï¿½p
     public GameObject restartBtn;
-    //ƒlƒNƒXƒgƒ{ƒ^ƒ“Ši”[—p
+    //ï¿½lï¿½Nï¿½Xï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½iï¿½[ï¿½p
     public GameObject nextBtn;
-    //‰æ‘œ‚ğ‚ÂƒQ[ƒ€ƒIƒuƒWƒFƒNƒgŠi”[—p
+    //ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½ÂƒQï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½iï¿½[ï¿½p
     public GameObject mainImage;
     
-    //ƒ^ƒCƒ€ƒo[Ši”[—p
+    //ï¿½^ï¿½Cï¿½ï¿½ï¿½oï¿½[ï¿½iï¿½[ï¿½p
     public GameObject timeBar;
-    //c‚èŠÔ•\¦ƒeƒLƒXƒgŠi”[—p
+    //ï¿½cï¿½èï¿½Ô•\ï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½gï¿½iï¿½[ï¿½p
     public GameObject timeText;
     
-    //ƒ^ƒCƒ€ƒRƒ“ƒgƒ[ƒ‰[ƒXƒNƒŠƒvƒgŠi”[—p
+    //ï¿½^ï¿½Cï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½gï¿½iï¿½[ï¿½p
     private TimeController timeCnt;
 
-    //ƒvƒŒƒCƒ„[‘€ì
+    //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
     public GameObject InputUI;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //GAMESTART‚ğ”ñ•\¦‚Éİ’è
+        //GAMESTARTï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Éİ’ï¿½
         Invoke("SetActiveMainImage", 1.0f);
-        //ƒpƒlƒ‹‚ğ”ñ•\¦‚Éİ’è
+        //ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½Éİ’ï¿½
         this.panel.SetActive(false);
 
-        //ƒ^ƒCƒ€ƒRƒ“ƒgƒ[ƒ‰æ“¾
+        //ï¿½^ï¿½Cï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½æ“¾
         this.timeCnt 
             = GetComponent<TimeController>();  
 
@@ -58,103 +58,109 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(PlayerController.gameState);
-        if(PlayerController.gameState=="gameclear")
+        if (PlayerController.gameState == "gameclear")
         {
 
             InputUI.SetActive(false);
-            //ƒQ[ƒ€ƒNƒŠƒA‚É‚È‚Á‚½‚ç
-            //ƒQ[ƒ€ƒNƒŠƒA‚Ì‰æ‘œ‚ğ•\¦‚·‚é
+            //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½Ì‰æ‘œï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             mainImage.SetActive(true);
 
-            //ƒ{ƒ^ƒ“‚ª“ü‚Á‚Ä‚éƒpƒlƒ‹‚à•\¦
+            //ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
             panel.SetActive(true);
 
-            //ƒŠƒXƒ^[ƒgƒ{ƒ^ƒ“‚Í‰Ÿ‚¹‚È‚¢‚æ‚¤‚É‚·‚é
+            //ï¿½ï¿½ï¿½Xï¿½^ï¿½[ï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
             Button rbtn = restartBtn.GetComponent<Button>();
             rbtn.interactable = false;
-            
-            //ƒƒCƒ“ƒCƒ[ƒW‚Ì‰æ‘œ‚ğGameClear‚Ì‰æ‘œ‚ÉØ‚è‘Ö‚¦‚é
-            Image mimg=mainImage.GetComponent<Image>();
+
+            //ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Wï¿½Ì‰æ‘œï¿½ï¿½GameClearï¿½Ì‰æ‘œï¿½ÉØ‚ï¿½Ö‚ï¿½ï¿½ï¿½
+            Image mimg = mainImage.GetComponent<Image>();
             mimg.sprite = this.gameClearSpr;
 
-            //ƒXƒe[ƒ^ƒX‚ğƒQ[ƒ€I—¹‚É‚·‚é
+            //ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
             PlayerController.gameState = "gameend";
 
-            //§ŒÀŠÔƒJƒEƒ“ƒg‚ğ~‚ß‚é
-            if(this.timeCnt!=null)
-            {
-                this.timeCnt.isTimeOver = true;
-            }
-
-            //ƒNƒŠƒA‰¹Ä¶
-            AudioSource soundPlayer = GetComponent<AudioSource>();
-            if(soundPlayer!=null)
-            {
-                //¡—¬‚µ‚Ä‚¢‚éBGM‚ğ~‚ß‚é
-                soundPlayer.Stop();
-                //ƒQ[ƒ€ƒNƒŠƒA‚Ì‰¹‚ğ–Â‚ç‚·
-                soundPlayer.PlayOneShot(this.acGameClear);
-            }
-        }       
-        else if (PlayerController.gameState == "gameover")
-        {
-            InputUI.SetActive(false);
-
-            //ƒQ[ƒ€ƒI[ƒo[‚É‚È‚Á‚½‚ç
-            //ƒQ[ƒ€ƒI[ƒo[‚Ì‰æ‘œ‚ğ•\¦‚·‚é
-            mainImage.SetActive(true);
-
-            //ƒ{ƒ^ƒ“‚ª“ü‚Á‚Ä‚éƒpƒlƒ‹‚à•\¦
-            panel.SetActive(true);
-
-            // ƒlƒNƒXƒgƒ{ƒ^ƒ“‚Í‰Ÿ‚¹‚È‚¢‚æ‚¤‚É‚·‚é
-            Button nbtn = nextBtn.GetComponent<Button>();
-            nbtn.interactable = false;
-
-            //ƒƒCƒ“ƒCƒ[ƒW‚Ì‰æ‘œ‚ğGameOver‚Ì‰æ‘œ‚ÉØ‚è‘Ö‚¦‚é
-            Image mimg = mainImage.GetComponent<Image>();
-            mimg.sprite = this.gameOverSpr;
-
-            //ƒXƒe[ƒ^ƒX‚ğƒQ[ƒ€I—¹‚É‚·‚é
-            PlayerController.gameState = "gameend";
-
-            //§ŒÀŠÔƒJƒEƒ“ƒg‚ğ~‚ß‚é
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔƒJï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½~ï¿½ß‚ï¿½
             if (this.timeCnt != null)
             {
                 this.timeCnt.isTimeOver = true;
             }
 
-            //ƒQ[ƒ€ƒI[ƒo[‰¹Ä¶
+            //ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Äï¿½
             AudioSource soundPlayer = GetComponent<AudioSource>();
             if (soundPlayer != null)
             {
-                //¡—¬‚µ‚Ä‚¢‚éBGM‚ğ~‚ß‚é
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½BGMï¿½ï¿½ï¿½~ï¿½ß‚ï¿½
                 soundPlayer.Stop();
-                //ƒQ[ƒ€ƒNƒŠƒA‚Ì‰¹‚ğ–Â‚ç‚·
+                //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½Ì‰ï¿½ï¿½ï¿½Â‚ç‚·
+                soundPlayer.PlayOneShot(this.acGameClear);
+            }
+        }
+        else if (PlayerController.gameState == "gameover")
+        {
+            InputUI.SetActive(false);
+
+            //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½É‚È‚ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½Ì‰æ‘œï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            mainImage.SetActive(true);
+
+            //ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½
+            panel.SetActive(true);
+
+            // ï¿½lï¿½Nï¿½Xï¿½gï¿½{ï¿½^ï¿½ï¿½ï¿½Í‰ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
+            Button nbtn = nextBtn.GetComponent<Button>();
+            nbtn.interactable = false;
+
+            //ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Wï¿½Ì‰æ‘œï¿½ï¿½GameOverï¿½Ì‰æ‘œï¿½ÉØ‚ï¿½Ö‚ï¿½ï¿½ï¿½
+            Image mimg = mainImage.GetComponent<Image>();
+            mimg.sprite = this.gameOverSpr;
+
+            //ï¿½Xï¿½eï¿½[ï¿½^ï¿½Xï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
+            PlayerController.gameState = "gameend";
+
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔƒJï¿½Eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½~ï¿½ß‚ï¿½
+            if (this.timeCnt != null)
+            {
+                this.timeCnt.isTimeOver = true;
+            }
+
+            //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Äï¿½
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½BGMï¿½ï¿½ï¿½~ï¿½ß‚ï¿½
+                soundPlayer.Stop();
+                //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½Ì‰ï¿½ï¿½ï¿½Â‚ç‚·
                 soundPlayer.PlayOneShot(this.acGameOver);
             }
         }
-        else if(PlayerController.gameState=="playing")
+        else if (PlayerController.gameState == "playing")
         {
-            if(this.timeCnt!=null)
+            if (this.timeCnt != null)
             {
-                //ƒ^ƒCƒ€ƒeƒLƒXƒg‚ğXV
+                //ï¿½^ï¿½Cï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½gï¿½ï¿½ï¿½Xï¿½V
                 this.timeText.GetComponent<TMP_Text>().text
-                    =this.timeCnt.displayTime.ToString("F1");
+                    = this.timeCnt.displayTime.ToString("F1");
             }
 
             GameObject player
                 = GameObject.FindGameObjectWithTag("Player");
             PlayerController pc
-                = player.GetComponent<PlayerController>(); 
-            //ƒXƒRƒAXV
-            if(pc.score!=0)
+                = player.GetComponent<PlayerController>();
+            //ï¿½Xï¿½Rï¿½Aï¿½Xï¿½V
+            if (pc.score != 0)
             {
-                this.stageScore 
+                this.stageScore
                     += pc.score;
                 pc.score = 0;
                 UpdateScore();
             }
+        }
+
+        if (PlayerController.isGetTime == true)
+        {
+            this.timeCnt.displayTime += 10;
+            PlayerController.isGetTime = false;
         }
     }
 
@@ -166,7 +172,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒXƒRƒA‚ğXV‚·‚é
+    /// ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½
     /// </summary>
     void UpdateScore()
     {
@@ -177,7 +183,7 @@ public class GameManager : MonoBehaviour
 
 
     /// <summary>
-    /// ƒƒCƒ“‰æ‘œ‚ğ”ñ•\¦‚É‚µ‚Ü‚·
+    /// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½æ‘œï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½Ü‚ï¿½
     /// </summary>
     void SetActiveMainImage()
     {

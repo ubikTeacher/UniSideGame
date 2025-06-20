@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 ///<summary>
 ///プレイヤーを操作するクラス
 ///</summary>
 public class PlayerController : MonoBehaviour
 {
+    public GameObject shieldText;
+    public bool isShield = false;
     //タッチスクリーン対応追加
     bool isMoving = false;
 
@@ -49,11 +52,15 @@ public class PlayerController : MonoBehaviour
     public string jumpAnime = "PlayerJump";
     public string goalAnime = "PlayerGoal";
     public string overAnime = "PlayerOver";
+    public static bool isGetTime = false;
 
     private string nowAnime = ""; //今のアニメーション
     private string oldAnime = ""; //１つ前のアニメーション
 
     public int score = 0; //スコア
+    bool isShieldOn = false;
+    float keikajikan = -1.0f;
+    float Shieldcount = 2;
 
     /// 初めに1回だけ実行される
     void Start()
@@ -65,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
         this.nowAnime = this.stopAnime;
         this.oldAnime = this.stopAnime;
+        this.shieldText.GetComponent<TMP_Text>().text
+                    =this.Shieldcount.ToString();
 
         //状態をプレイ中に設定
         gameState = "playing"; 
@@ -77,12 +86,29 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+        if (Input.GetKey(KeyCode.Z) && keikajikan == -1 && Shieldcount > 0)
+        {
+            keikajikan = 0;
+            isShieldOn = true;
+            Shieldcount -= 1;
+            this.shieldText.GetComponent<TMP_Text>().text
+                    =this.Shieldcount.ToString();
+        }
+        if (keikajikan > -1)
+        {
+            keikajikan += Time.deltaTime;
+            if (keikajikan > 3)
+            {
+                keikajikan = -1;
+                isShieldOn = false;
+            }
+        }
 
         //移動
-        if(isMoving==false)
-        {
-            this.inputH = Input.GetAxisRaw("Horizontal");
-        }
+            if (isMoving == false)
+            {
+                this.inputH = Input.GetAxisRaw("Horizontal");
+            }
 
         //水平方向の入力があるかを取得する
         //←を押されたら-1、→を押されたら+1が入る
@@ -208,19 +234,33 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         //ぶつかった物体のタグがGoalかチェック
-        if(collision.gameObject.tag=="Goal")
+        if (collision.gameObject.tag == "Goal")
         {
             GameClear();
         }
         //ぶつかった物体のタグがDeadかチェック
         if (collision.gameObject.tag == "Dead")
         {
-            GameOver();
+            if (isShieldOn == true)
+            {
+
+            }
+            else
+            {
+                GameOver();
+            }
         }
         //ぶつかった物体のタグがScoreItemかチェック
         if (collision.gameObject.tag == "ScoreItem")
         {
             GetItem(collision);
+        }
+
+        //ぶつかった物体のタグがScoreItemかチェック
+        if (collision.gameObject.tag == "TimeItem")
+        {
+            isGetTime = true;
+            Destroy(collision.gameObject);
         }
     }
 
