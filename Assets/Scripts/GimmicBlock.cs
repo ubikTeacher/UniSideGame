@@ -5,76 +5,76 @@ using System.Collections.Generic;
 public class GimmicBlock : MonoBehaviour
 {
     /// <summary>
-    /// Ž©“®—Ž‰ºŒŸ’m‹——£
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public float length = 0.0f;
 
     /// <summary>
-    /// —Ž‰ºŒã‚Éíœ‚·‚é‚©‚Ç‚¤‚©ƒtƒ‰ƒOiTrue:—Ž‰ºŒã‚Éíœ)
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éíœï¿½ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½iTrue:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éíœ)
     /// </summary>
     public bool isDelete = false;
 
-    /// <summary>DEADƒIƒuƒWƒFƒNƒgŠi”[—p</summary>
+    /// <summary>DEADï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½iï¿½[ï¿½p</summary>
     public GameObject deadObj;
 
-    /// <summary>—Ž‚¿‚½‚©‚Ç‚¤‚©(‰‚ß‚Ífalse)</summary>
+    /// <summary>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ß‚ï¿½false)</summary>
     bool isFell = false;
 
-    /// <summary>ƒtƒF[ƒhƒAƒEƒg‚ÌŽžŠÔ</summary>
-    float fadeoutTime = 0.5f;
+    /// <summary>ï¿½tï¿½Fï¿½[ï¿½hï¿½Aï¿½Eï¿½gï¿½ÌŽï¿½ï¿½ï¿½</summary>
+    float fadeoutTime = 5.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //ƒXƒ^[ƒgŽž‚É—Ž‰º‚µ‚È‚¢‚æ‚¤‚ÉA
-        //d—Í•”•i‚Ìƒ^ƒCƒv‚ð•ÏX‚µ‚Ä‚¨‚­
+        //ï¿½Xï¿½^ï¿½[ï¿½gï¿½ï¿½ï¿½É—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½ÉA
+        //ï¿½dï¿½Í•ï¿½ï¿½iï¿½Ìƒ^ï¿½Cï¿½vï¿½ï¿½ÏXï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
         Rigidbody2D rbody = this.GetComponent<Rigidbody2D>();
         rbody.bodyType = RigidbodyType2D.Static;
         
-        //—Ž‰º‘O‚ÉƒMƒ~ƒbƒN‚Ì‰º•”‚É‚Ó‚ê‚Ä‚à
-        //Ž€‚È‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¨‚­
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ÉƒMï¿½~ï¿½bï¿½Nï¿½Ì‰ï¿½ï¿½ï¿½ï¿½É‚Ó‚ï¿½Ä‚ï¿½
+        //ï¿½ï¿½ï¿½È‚È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
         deadObj.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ƒvƒŒƒCƒ„[‚ÌƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚ðŽæ“¾
+        //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌƒQï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
-            //ƒvƒŒƒCƒ„[‚ÆƒMƒ~ƒbƒNƒuƒƒbƒN‚Ì‹——£‚ðŽæ“¾
+            //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÆƒMï¿½~ï¿½bï¿½Nï¿½uï¿½ï¿½ï¿½bï¿½Nï¿½Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
             float kyori=Vector2.Distance(this.transform.position
                                     , player.transform.position);
             
             //Debug.Log(kyori);
             if(length>=kyori)
             {
-                //ƒvƒŒƒCƒ„[‚ªŽË’öŒ—“à‚É“ü‚Á‚½‚Ì‚Å
-                //Rigidbody‚ÌbodyType‚ðÄ“xDynamic‚É–ß‚·I
+                //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ë’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½
+                //Rigidbodyï¿½ï¿½bodyTypeï¿½ï¿½ï¿½Ä“xDynamicï¿½É–ß‚ï¿½ï¿½I
                 Rigidbody2D rbody = this.GetComponent<Rigidbody2D>();
                 rbody.bodyType = RigidbodyType2D.Dynamic;
 
-                //“¥‚Ý‚Â‚Ô‚³‚ê‚½‚çŽ€‚Ê‚æ‚¤‚ÉÝ’è
+                //ï¿½ï¿½ï¿½Ý‚Â‚Ô‚ï¿½ï¿½ê‚½ï¿½çŽ€ï¿½Ê‚æ‚¤ï¿½ÉÝ’ï¿½
                 deadObj.SetActive(true);
             }
         }
 
-        //—Ž‰º‚µ‚½‚©‚Ç‚¤‚©
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½
         if(this.isFell)
         {
-            //—Ž‰º‚µ‚½ê‡‚ÍA“§–¾‚É‚µ‚Ä‚¢‚­
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ÍAï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
             this.fadeoutTime -= Time.deltaTime;
 
-            //ƒXƒvƒ‰ƒCƒg‚ÉÝ’è‚³‚ê‚Ä‚¢‚é
-            //F‚ðŽæ“¾‚µA“§–¾‚ÌÝ’è’l‚ð•ÏX‚·‚é
+            //ï¿½Xï¿½vï¿½ï¿½ï¿½Cï¿½gï¿½ÉÝ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+            //ï¿½Fï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ÌÝ’ï¿½lï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½
             Color clr = this.GetComponent<SpriteRenderer>().color;
             
-            //“§–¾’l‚ð™X‚ÉŒ¸‚ç‚·
+            //ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ÉŒï¿½ï¿½ç‚·
             clr.a = this.fadeoutTime;
             
-            //“§–¾’l‚ª0‚æ‚è¬‚³‚­‚È‚Á‚½‚çƒMƒ~ƒbƒN‚ðÁ‚·
+            //ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½0ï¿½ï¿½è¬ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½Mï¿½~ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if(this.fadeoutTime<0.0f)
             {
                 Destroy(gameObject);
@@ -84,20 +84,20 @@ public class GimmicBlock : MonoBehaviour
     }
 
     /// <summary>
-    /// “–‚½‚Á‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚é
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½ÉŒÄ‚Ñoï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("‚¨‚¿‚½‚©‚ÈH");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÈH");
         if(this.isDelete)
         {
-            //—Ž‰ºƒtƒ‰ƒO‚ðƒIƒ“‚É‚·‚é
+            //ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
             this.isFell = true;
         }
     }
 
-    //”ÍˆÍ•\Ž¦
+    //ï¿½ÍˆÍ•\ï¿½ï¿½
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(this.transform.position
