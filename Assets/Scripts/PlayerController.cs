@@ -7,6 +7,9 @@ using System.Collections.Generic;
 ///</summary>
 public class PlayerController : MonoBehaviour
 {
+    //サウンド設定追加
+    public AudioClip acGetitem;//ゲットアイテム
+
     //タッチスクリーン対応追加
     bool isMoving = false;
 
@@ -221,6 +224,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "ScoreItem")
         {
             GetItem(collision);
+            //音をならす
+            //ゲットアイテム音を再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //ゲットアイテムの音を鳴らす
+                soundPlayer.PlayOneShot(this.acGetitem);
+            }
         }
     }
 
