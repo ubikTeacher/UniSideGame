@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 ///<summary>
 ///プレイヤーを操作するクラス
 ///</summary>
 public class PlayerController : MonoBehaviour
 {
+    public GameObject shieldText;
+    public bool isShield = false;
     //タッチスクリーン対応追加
     bool isMoving = false;
 
@@ -29,7 +32,12 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// ジャンプ力設定用
     /// </summary>
-    public float jump = 9.0f;
+    public float jump = 5.0f;
+
+    /// <summary>
+    /// スピードスピード設定用
+    /// </summary>
+    public float speed = 8.0f;
 
     /// <summary>
     /// ジャンプ押されたかどうか
@@ -49,11 +57,15 @@ public class PlayerController : MonoBehaviour
     public string jumpAnime = "PlayerJump";
     public string goalAnime = "PlayerGoal";
     public string overAnime = "PlayerOver";
+    public static bool isGetTime = false;
 
     private string nowAnime = ""; //今のアニメーション
     private string oldAnime = ""; //１つ前のアニメーション
 
     public int score = 0; //スコア
+    bool isShieldOn = false;
+    float keikajikan = -1.0f;
+    float Shieldcount = 2;
 
     /// 初めに1回だけ実行される
     void Start()
@@ -65,6 +77,8 @@ public class PlayerController : MonoBehaviour
 
         this.nowAnime = this.stopAnime;
         this.oldAnime = this.stopAnime;
+        this.shieldText.GetComponent<TMP_Text>().text
+                    =this.Shieldcount.ToString();
 
         //状態をプレイ中に設定
         gameState = "playing"; 
@@ -77,16 +91,29 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
-        //移動
-        if(isMoving==false)
+        if (Input.GetKey(KeyCode.Z) && keikajikan == -1 && Shieldcount > 0)
         {
-            this.inputH = Input.GetAxisRaw("Horizontal");
+            keikajikan = 0;
+            isShieldOn = true;
+            Shieldcount -= 1;
+            this.shieldText.GetComponent<TMP_Text>().text
+                    =this.Shieldcount.ToString();
+        }
+        if (keikajikan > -1)
+        {
+            keikajikan += Time.deltaTime;
+            if (keikajikan > 3)
+            {
+                keikajikan = -1;
+                isShieldOn = false;
+            }
         }
 
-        //水平方向の入力があるかを取得する
-        //←を押されたら-1、→を押されたら+1が入る
-        this.inputH = Input.GetAxisRaw("Horizontal");
+        //移動
+            if (isMoving == false)
+            {
+                this.inputH = Input.GetAxisRaw("Horizontal");
+            }
 
         //画像の向きを設定
         if(this.inputH == -1)
@@ -111,8 +138,7 @@ public class PlayerController : MonoBehaviour
         //ジャンプボタンがおされたか
         if(Input.GetButtonDown("Jump")== true)
         {
-            //ジャンプ中に設定
-            this.isJump= true; 
+            Jump();
         }
     }
 
@@ -136,7 +162,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         this.rbody.linearVelocity
-        = new Vector2(this.inputH * 8.0f
+        = new Vector2(this.inputH * this.speed
         ,this.rbody.linearVelocityY);
 
         //地面かどうかフラグ
@@ -155,7 +181,17 @@ public class PlayerController : MonoBehaviour
         //ジャンプ中フラグが立っているかチェック
         if(this.isJump==true && isGround==true)
         {
-            Jump();
+            //ジャンプボタン押された＋地面にいる
+
+            //ジャンプのベクトルを作る
+            Vector2 jumpPw = new Vector2(0, jump);
+
+            //瞬間的にプレイヤーにその力を加える
+            this.rbody.AddForce(jumpPw
+                , ForceMode2D.Impulse);
+
+            //ジャンプ中フラグをまたオフにしておく
+            this.isJump = false;
         }
 
         //アニメーション設定
@@ -189,17 +225,9 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        //ジャンプボタン押された＋地面にいる
-
-        //ジャンプのベクトルを作る
-        Vector2 jumpPw = new Vector2(0, jump);
-
-        //瞬間的にプレイヤーにその力を加える
-        this.rbody.AddForce(jumpPw
-            , ForceMode2D.Impulse);
-
-        //ジャンプ中フラグをまたオフにしておく
-        this.isJump = false;
+        Debug.Log("Jump!!");
+        //ジャンプ中に設定
+        this.isJump = true;
     }
     /// <summary>
     /// 当たったときに呼び出される
@@ -207,20 +235,38 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (gameState == "gameend")
+        {
+            return;
+        }
         //ぶつかった物体のタグがGoalかチェック
-        if(collision.gameObject.tag=="Goal")
+        if (collision.gameObject.tag == "Goal")
         {
             GameClear();
         }
         //ぶつかった物体のタグがDeadかチェック
         if (collision.gameObject.tag == "Dead")
         {
-            GameOver();
+            if (isShieldOn == true)
+            {
+
+            }
+            else
+            {
+                GameOver();
+            }
         }
         //ぶつかった物体のタグがScoreItemかチェック
         if (collision.gameObject.tag == "ScoreItem")
         {
             GetItem(collision);
+        }
+
+        //ぶつかった物体のタグがScoreItemかチェック
+        if (collision.gameObject.tag == "TimeItem")
+        {
+            isGetTime = true;
+            Destroy(collision.gameObject);
         }
     }
 
@@ -244,7 +290,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void GameClear()
     {
-        Debug.Log("Goal!!");
+        //Debug.Log("Goal!!");
         //ゴールのアニメーション再生
         this.animator.Play(this.goalAnime);
         gameState = "gameclear";
@@ -255,7 +301,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
-        Debug.Log("GameOver!!");
+        //Debug.Log("GameOver!!");
         //ゲームオーバーのアニメーション再生
         this.animator.Play(this.overAnime);
         gameState = "gameover";

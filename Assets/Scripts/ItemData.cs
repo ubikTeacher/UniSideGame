@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemData : MonoBehaviour
 {
     /// <summary>
-    /// ‚±‚ÌƒAƒCƒeƒ€‚ÉG‚ê‚½‚ç‰½“¾“_UP‚©‚Ìİ’è’l
+    /// ï¿½ï¿½ï¿½ÌƒAï¿½Cï¿½eï¿½ï¿½ï¿½ÉGï¿½ê‚½ï¿½ç‰½ï¿½ï¿½ï¿½_UPï¿½ï¿½ï¿½Ìİ’ï¿½l
     /// </summary>
     public int value = 0;
 
