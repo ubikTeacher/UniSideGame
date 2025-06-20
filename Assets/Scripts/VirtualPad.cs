@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class VirtualPad : MonoBehaviour
 {
-
     public float MaxLength = 70;//タブが動く最大距離
     public bool is4DPad = false; //4方向パッドかどうか
     GameObject player; //プレイヤーオブジェクト
