@@ -80,8 +80,12 @@ public class PlayerController : MonoBehaviour
 
         this.nowAnime = this.stopAnime;
         this.oldAnime = this.stopAnime;
-        this.shieldText.GetComponent<TMP_Text>().text
-                    =this.Shieldcount.ToString();
+        if(this.shieldText!=null)
+        {
+            this.shieldText.GetComponent<TMP_Text>().text
+             = this.Shieldcount.ToString();
+        }
+ 
 
         //状態をプレイ中に設定
         gameState = "playing"; 
@@ -94,21 +98,27 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKey(KeyCode.Z) && keikajikan == -1 && Shieldcount > 0)
+        if(isShield)
         {
-            keikajikan = 0;
-            isShieldOn = true;
-            Shieldcount -= 1;
-            this.shieldText.GetComponent<TMP_Text>().text
-                    =this.Shieldcount.ToString();
-        }
-        if (keikajikan > -1)
-        {
-            keikajikan += Time.deltaTime;
-            if (keikajikan > 3)
+            if (Input.GetKey(KeyCode.Z) && keikajikan == -1 && Shieldcount > 0)
             {
-                keikajikan = -1;
-                isShieldOn = false;
+                keikajikan = 0;
+                isShieldOn = true;
+                Shieldcount -= 1;
+                if (this.shieldText != null)
+                {
+                    this.shieldText.GetComponent<TMP_Text>().text
+                     = this.Shieldcount.ToString();
+                }
+            }
+            if (keikajikan > -1)
+            {
+                keikajikan += Time.deltaTime;
+                if (keikajikan > 3)
+                {
+                    keikajikan = -1;
+                    isShieldOn = false;
+                }
             }
         }
 
