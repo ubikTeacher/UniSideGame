@@ -47,7 +47,7 @@ public class MovingBlock : MonoBehaviour
             //ˆÚ“®‹——£‚ðŒvŽZ
             float kyori
                 = Vector2.Distance(startPos, endPos);
-            Debug.Log(kyori);
+            //Debug.Log(kyori);
             float ds = kyori / times;//1•b‚ÌˆÚ“®‹——£
             float df = ds * Time.deltaTime;
             movep += df / kyori;

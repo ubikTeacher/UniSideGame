@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(PlayerController.gameState);
-        if (PlayerController.gameState == "gameclear")
+        if(PlayerController.gameState=="gameclear")
         {
 
             InputUI.SetActive(false);
