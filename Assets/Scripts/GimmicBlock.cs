@@ -89,7 +89,7 @@ public class GimmicBlock : MonoBehaviour
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("おちたかな？");
+        //Debug.Log("おちたかな？");
         if(this.isDelete)
         {
             //落下フラグをオンにする
