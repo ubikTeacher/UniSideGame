@@ -204,8 +204,12 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (gameState == "gameend")
+        {
+            return;
+        }
         //ぶつかった物体のタグがGoalかチェック
-        if(collision.gameObject.tag=="Goal")
+        if (collision.gameObject.tag=="Goal")
         {
             GameClear();
         }
