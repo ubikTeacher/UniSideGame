@@ -1266,7 +1266,7 @@ MonoBehaviour:
   shieldText: {fileID: 0}
   isShield: 0
   jump: 9
-  speed: 4
+  speed: 6
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
