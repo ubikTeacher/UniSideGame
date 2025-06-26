@@ -5,76 +5,76 @@ using System.Collections.Generic;
 public class GimmicBlock : MonoBehaviour
 {
     /// <summary>
-    /// �����������m����
+    /// ???????????m????
     /// </summary>
     public float length = 0.0f;
 
     /// <summary>
-    /// ������ɍ폜���邩�ǂ����t���O�iTrue:������ɍ폜)
+    /// ??????????????????t???O?iTrue:????????)
     /// </summary>
     public bool isDelete = false;
 
-    /// <summary>DEAD�I�u�W�F�N�g�i�[�p</summary>
+    /// <summary>DEAD?I?u?W?F?N?g?i?[?p</summary>
     public GameObject deadObj;
 
-    /// <summary>���������ǂ���(���߂�false)</summary>
+    /// <summary>?????????????(?????false)</summary>
     bool isFell = false;
 
-    /// <summary>�t�F�[�h�A�E�g�̎���</summary>
+    /// <summary>?t?F?[?h?A?E?g?????</summary>
     float fadeoutTime = 5.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //�X�^�[�g���ɗ������Ȃ��悤�ɁA
-        //�d�͕��i�̃^�C�v��ύX���Ă���
+        //?X?^?[?g????????????????A
+        //?d????i??^?C?v???X???????
         Rigidbody2D rbody = this.GetComponent<Rigidbody2D>();
         rbody.bodyType = RigidbodyType2D.Static;
         
-        //�����O�ɃM�~�b�N�̉����ɂӂ�Ă�
-        //���ȂȂ��悤�ɂ��Ă���
+        //?????O??M?~?b?N???????????
+        //????????????????
         deadObj.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //�v���C���[�̃Q�[���I�u�W�F�N�g���擾
+        //?v???C???[??Q?[???I?u?W?F?N?g???��
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
-            //�v���C���[�ƃM�~�b�N�u���b�N�̋������擾
+            //?v???C???[??M?~?b?N?u???b?N????????��
             float kyori=Vector2.Distance(this.transform.position
                                     , player.transform.position);
             
             //Debug.Log(kyori);
             if(length>=kyori)
             {
-                //�v���C���[���˒������ɓ������̂�
-                //Rigidbody��bodyType���ēxDynamic�ɖ߂��I
+                //?v???C???[???????????????????
+                //Rigidbody??bodyType????xDynamic?????I
                 Rigidbody2D rbody = this.GetComponent<Rigidbody2D>();
                 rbody.bodyType = RigidbodyType2D.Dynamic;
 
-                //���݂Ԃ��ꂽ�玀�ʂ悤�ɐݒ�
+                //??????????????????
                 deadObj.SetActive(true);
             }
         }
 
-        //�����������ǂ���
+        //???????????????
         if(this.isFell)
         {
-            //���������ꍇ�́A�����ɂ��Ă���
+            //????????????A????????????
             this.fadeoutTime -= Time.deltaTime;
 
-            //�X�v���C�g�ɐݒ肳��Ă���
-            //�F���擾���A�����̐ݒ�l��ύX����
+            //?X?v???C?g??????????
+            //?F???��???A????????l???X????
             Color clr = this.GetComponent<SpriteRenderer>().color;
             
-            //�����l�����X�Ɍ��炷
+            //?????l?????X?????
             clr.a = this.fadeoutTime;
             
-            //�����l��0��菬�����Ȃ�����M�~�b�N������
+            //?????l??0??????????????M?~?b?N??????
             if(this.fadeoutTime<0.0f)
             {
                 Destroy(gameObject);
@@ -84,20 +84,20 @@ public class GimmicBlock : MonoBehaviour
     }
 
     /// <summary>
-    /// ���������Ƃ��ɌĂяo�����
+    /// ??????????????��o?????
     /// </summary>
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("���������ȁH");
+        //Debug.Log("??????????H");
         if(this.isDelete)
         {
-            //�����t���O���I���ɂ���
+            //?????t???O???I???????
             this.isFell = true;
         }
     }
 
-    //�͈͕\��
+    //???\??
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(this.transform.position
