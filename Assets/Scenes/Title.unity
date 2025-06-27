@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d989af9f4875e3a40908f948c90bb886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Stage3
+  sceneName: nakazima
 --- !u!114 &1091996559
 MonoBehaviour:
   m_ObjectHideFlags: 0
