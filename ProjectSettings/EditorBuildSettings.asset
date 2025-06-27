@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: e3d27e73a281bc44fa1358fc44f002f5
+  - enabled: 1
+    path: Assets/Scenes/nakazima.unity
+    guid: 19e3a4b5f6e4bcf4a9a970a9612839f2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
