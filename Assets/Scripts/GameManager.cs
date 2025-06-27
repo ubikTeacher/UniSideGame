@@ -1,57 +1,56 @@
 using UnityEngine;
-using UnityEngine.UI; //UI�̕��i�g�p���Ă���̂œ���Ă���
+using UnityEngine.UI; //UIの部品使用しているので入れておく
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;//TextMeshPro�p
+using TMPro;//TextMeshPro用
 
 public class GameManager : MonoBehaviour
 {
-    //�T�E���h�ݒ�ǉ�
-    public AudioClip acGameOver;//�Q�[���I�[�o�[
-    public AudioClip acGameClear;//�Q�[���N���A
+    //サウンド設定追加
+    public AudioClip acGameOver;//ゲームオーバー
+    public AudioClip acGameClear;//ゲームクリア
 
-    //�X�R�A�ǉ�
-    public GameObject scoreText;  //�X�R�A�e�L�X�g�i�[�p
-    public static int totalScore; //���v�X�R�A
-    public int stageScore = 0;    //�X�e�[�W�X�R�A
+    //スコア追加
+    public GameObject scoreText;  //スコアテキスト格納用
+    public static int totalScore; //合計スコア
+    public int stageScore = 0;    //ステージスコア
 
-    //�Q�[���I�[�o�[�p�摜�ݒ�p
+    //ゲームオーバー用画像設定用
     public Sprite gameOverSpr;
-    //�Q�[���N���A�p�摜�ݒ�p
+    //ゲームクリア用画像設定用
     public Sprite gameClearSpr;
-    //�p�l���i�[�p
+    //パネル格納用
     public GameObject panel;
-    //���X�^�[�g�{�^���i�[�p
+    //リスタートボタン格納用
     public GameObject restartBtn;
-    //�l�N�X�g�{�^���i�[�p
+    //ネクストボタン格納用
     public GameObject nextBtn;
-    //�摜�����Q�[���I�u�W�F�N�g�i�[�p
+    //画像を持つゲームオブジェクト格納用
     public GameObject mainImage;
     public GameObject mainImage2;
-    
-    //�^�C���o�[�i�[�p
+    //タイムバー格納用
     public GameObject timeBar;
-    //�c�莞�ԕ\���e�L�X�g�i�[�p
+    //残り時間表示テキスト格納用
     public GameObject timeText;
-    
-    //�^�C���R���g���[���[�X�N���v�g�i�[�p
+
+    //タイムコントローラースクリプト格納用
     private TimeController timeCnt;
 
-    //�v���C���[����
+    //プレイヤー操作
     public GameObject InputUI;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //GAMESTART���\���ɐݒ�
+        //GAMESTARTを非表示に設定
         Invoke("SetActiveMainImage", 1.0f);
-        //�p�l�����\���ɐݒ�
+        //パネルを非表示に設定
         this.panel.SetActive(false);
 
-        //�^�C���R���g���[���擾
-        this.timeCnt 
-            = GetComponent<TimeController>();  
+        //タイムコントローラ取得
+        this.timeCnt
+            = GetComponent<TimeController>();
 
     }
 
@@ -59,41 +58,41 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(PlayerController.gameState);
-        if(PlayerController.gameState=="gameclear")
+        if (PlayerController.gameState == "gameclear")
         {
 
             InputUI.SetActive(false);
-            //�Q�[���N���A�ɂȂ�����
-            //�Q�[���N���A�̉摜��\������
+            //ゲームクリアになったら
+            //ゲームクリアの画像を表示する
             mainImage.SetActive(true);
 
-            //�{�^���������Ă�p�l�����\��
+            //ボタンが入ってるパネルも表示
             panel.SetActive(true);
 
-            //���X�^�[�g�{�^���͉����Ȃ��悤�ɂ���
+            //リスタートボタンは押せないようにする
             Button rbtn = restartBtn.GetComponent<Button>();
             rbtn.interactable = false;
 
-            //���C���C���[�W�̉摜��GameClear�̉摜�ɐ؂�ւ���
+            //メインイメージの画像をGameClearの画像に切り替える
             Image mimg = mainImage.GetComponent<Image>();
             mimg.sprite = this.gameClearSpr;
 
-            //�X�e�[�^�X���Q�[���I���ɂ���
+            //ステータスをゲーム終了にする
             PlayerController.gameState = "gameend";
 
-            //�������ԃJ�E���g���~�߂�
+            //制限時間カウントを止める
             if (this.timeCnt != null)
             {
                 this.timeCnt.isTimeOver = true;
             }
 
-            //�N���A���Đ�
+            //クリア音再生
             AudioSource soundPlayer = GetComponent<AudioSource>();
             if (soundPlayer != null)
             {
-                //�������Ă���BGM���~�߂�
+                //今流しているBGMを止める
                 soundPlayer.Stop();
-                //�Q�[���N���A�̉���炷
+                //ゲームクリアの音を鳴らす
                 soundPlayer.PlayOneShot(this.acGameClear);
             }
         }
@@ -101,41 +100,40 @@ public class GameManager : MonoBehaviour
         {
             InputUI.SetActive(false);
 
-            //�Q�[���I�[�o�[�ɂȂ�����
-            //�Q�[���I�[�o�[�̉摜��\������
+            //ゲームオーバーになったら
+            //ゲームオーバーの画像を表示する
             mainImage.SetActive(true);
 
-            //�{�^���������Ă�p�l�����\��
+            //ボタンが入ってるパネルも表示
             panel.SetActive(true);
 
-            // �l�N�X�g�{�^���͉����Ȃ��悤�ɂ���
+            // ネクストボタンは押せないようにする
             Button nbtn = nextBtn.GetComponent<Button>();
             nbtn.interactable = false;
 
-            //���C���C���[�W�̉摜��GameOver�̉摜�ɐ؂�ւ���
+            //メインイメージの画像をGameOverの画像に切り替える
             Image mimg = mainImage.GetComponent<Image>();
-
             mimg.sprite = this.gameOverSpr;
-            if (this.mainImage2 != null)
+            if (this.mainImage2 != null) 
             {
                 mimg.transform.position = new Vector2(mimg.transform.position.x + 4, mimg.transform.position.y);
             }
-            //�X�e�[�^�X���Q�[���I���ɂ���
+            //ステータスをゲーム終了にする
             PlayerController.gameState = "gameend";
 
-            //�������ԃJ�E���g���~�߂�
+            //制限時間カウントを止める
             if (this.timeCnt != null)
             {
                 this.timeCnt.isTimeOver = true;
             }
 
-            //�Q�[���I�[�o�[���Đ�
+            //ゲームオーバー音再生
             AudioSource soundPlayer = GetComponent<AudioSource>();
             if (soundPlayer != null)
             {
-                //�������Ă���BGM���~�߂�
+                //今流しているBGMを止める
                 soundPlayer.Stop();
-                //�Q�[���N���A�̉���炷
+                //ゲームクリアの音を鳴らす
                 soundPlayer.PlayOneShot(this.acGameOver);
             }
         }
@@ -143,7 +141,7 @@ public class GameManager : MonoBehaviour
         {
             if (this.timeCnt != null)
             {
-                //�^�C���e�L�X�g���X�V
+                //タイムテキストを更新
                 this.timeText.GetComponent<TMP_Text>().text
                     = this.timeCnt.displayTime.ToString("F1");
             }
@@ -152,7 +150,7 @@ public class GameManager : MonoBehaviour
                 = GameObject.FindGameObjectWithTag("Player");
             PlayerController pc
                 = player.GetComponent<PlayerController>();
-            //�X�R�A�X�V
+            //スコア更新
             if (pc.score != 0)
             {
                 this.stageScore
@@ -177,26 +175,25 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// �X�R�A���X�V����
+    /// スコアを更新する
     /// </summary>
     void UpdateScore()
     {
         int score = this.stageScore + totalScore;
         this.scoreText.GetComponent<TMP_Text>().text
-                            = score.ToString();    
+                            = score.ToString();
     }
 
 
     /// <summary>
-    /// ���C���摜���\���ɂ��܂�
+    /// メイン画像を非表示にします
     /// </summary>
     void SetActiveMainImage()
     {
         this.mainImage.SetActive(false);
-        if (this.mainImage2 != null)
+        if (this.mainImage2 != null) 
         {
             this.mainImage2.SetActive(false);
         }
-    
     }
 }
