@@ -2528,15 +2528,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 868655634934234020, guid: 89a3d4392ef62f6419c4b2a772fda6ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.91
+      value: 29.97
       objectReference: {fileID: 0}
     - target: {fileID: 868655634934234020, guid: 89a3d4392ef62f6419c4b2a772fda6ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.36
+      value: 11.31
       objectReference: {fileID: 0}
     - target: {fileID: 868655634934234020, guid: 89a3d4392ef62f6419c4b2a772fda6ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.06
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 868655634934234020, guid: 89a3d4392ef62f6419c4b2a772fda6ab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3074,6 +3074,14 @@ PrefabInstance:
     - target: {fileID: 619261208423362045, guid: f04e05610b5c2f74e9e8fe2c43482913, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624956708288781516, guid: f04e05610b5c2f74e9e8fe2c43482913, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624956708288781516, guid: f04e05610b5c2f74e9e8fe2c43482913, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 7666471243064242798, guid: f04e05610b5c2f74e9e8fe2c43482913, type: 3}
       propertyPath: m_Name
@@ -3972,6 +3980,14 @@ PrefabInstance:
       propertyPath: mainImage2
       value: 
       objectReference: {fileID: 916093589}
+    - target: {fileID: 7661698568247148076, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: gameOverSpr
+      value: 
+      objectReference: {fileID: 21300000, guid: fce1dd99bc0954283be67e176016ef02, type: 3}
+    - target: {fileID: 7661698568247148076, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: mainImage_5
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8782975022117321849, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_SizeDelta.x
       value: 586.93
