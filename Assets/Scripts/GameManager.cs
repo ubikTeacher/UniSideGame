@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject nextBtn;
     //�摜�����Q�[���I�u�W�F�N�g�i�[�p
     public GameObject mainImage;
+    public GameObject mainImage2;
     
     //�^�C���o�[�i�[�p
     public GameObject timeBar;
@@ -113,8 +114,12 @@ public class GameManager : MonoBehaviour
 
             //���C���C���[�W�̉摜��GameOver�̉摜�ɐ؂�ւ���
             Image mimg = mainImage.GetComponent<Image>();
-            mimg.sprite = this.gameOverSpr;
 
+            mimg.sprite = this.gameOverSpr;
+            if (this.mainImage2 != null)
+            {
+                mimg.transform.position = new Vector2(mimg.transform.position.x + 4, mimg.transform.position.y);
+            }
             //�X�e�[�^�X���Q�[���I���ɂ���
             PlayerController.gameState = "gameend";
 
@@ -188,5 +193,10 @@ public class GameManager : MonoBehaviour
     void SetActiveMainImage()
     {
         this.mainImage.SetActive(false);
+        if (this.mainImage2 != null)
+        {
+            this.mainImage2.SetActive(false);
+        }
+    
     }
 }
