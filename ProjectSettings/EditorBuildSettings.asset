@@ -5,34 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Title.unity
     guid: 9cc253e71a1390445bd54a121c5f5fb2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Takagishi.unity
     guid: 66fafc1bbd117bc4b9315e1057806159
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/inoue.unity
     guid: f4b413df4189731418351edbd3ec1ca6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/hiraki.unity
     guid: 8f3649e95cd98d643b74815253d84a9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/shibutani.unity
     guid: 522c0f454d033574991d67be52b5b13f
   - enabled: 1
     path: Assets/Scenes/nakamura.unity
     guid: 75641675c545c36409ad5a89d0e6fe83
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sagarasense.unity
     guid: 6d2fb4241f87a6b43b2cab22fd5a4c18
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/nunomura.unity
     guid: 563f01d3e7ad15642b25a594c684e67d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Result.unity
     guid: e3d27e73a281bc44fa1358fc44f002f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/nakazima.unity
     guid: 19e3a4b5f6e4bcf4a9a970a9612839f2
   m_configObjects:
