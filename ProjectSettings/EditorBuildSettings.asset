@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/nakazima.unity
     guid: 19e3a4b5f6e4bcf4a9a970a9612839f2
   - enabled: 1
+    path: Assets/Scenes/0803Shibutani.unity
+    guid: 7d10d122460195242ae6739b75029d5d
+  - enabled: 0
     path: Assets/Scenes/0803nunomuraver.unity
     guid: e95a4a5fa9a24ef4b98fd954dbd91019
   m_configObjects:
