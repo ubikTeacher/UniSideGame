@@ -70,6 +70,11 @@ public class PlayerController : MonoBehaviour
     float keikajikan = -1.0f;
     float Shieldcount = 2;
 
+    //アイテムの指定数を取得したらゴールとする
+    public bool isClearItemCount=false;
+    public int GoalCount = 5;
+    private int ItemCount = 0;
+
     /// 初めに1回だけ実行される
     void Start()
     {
@@ -255,7 +260,16 @@ public class PlayerController : MonoBehaviour
         //ぶつかった物体のタグがGoalかチェック
         if (collision.gameObject.tag == "Goal")
         {
-            GameClear();
+            //アイテムカウントの数がゴールカウント以上になったら、ゲームクリアに
+            if (this.isClearItemCount && this.ItemCount >= GoalCount)
+            {
+                GameClear();
+            }
+            //アイテムを使わない人に
+            if (this.isClearItemCount == false) 
+            {
+                GameClear();
+            }
         }
         //ぶつかった物体のタグがDeadかチェック
         if (collision.gameObject.tag == "Dead")
@@ -281,6 +295,14 @@ public class PlayerController : MonoBehaviour
                 //ゲットアイテムの音を鳴らす
                 soundPlayer.PlayOneShot(this.acGetitem);
             }
+
+            //アイテムカウントを増やす
+            if (this.isClearItemCount == true) 
+            {
+                this.ItemCount += 1;
+            }
+
+            
         }
 
         //ぶつかった物体のタグがScoreItemかチェック
