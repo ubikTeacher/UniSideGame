@@ -356,11 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 2
   wait: 1
-  isKieru: 0
-  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
-  isChild: 0
   moveX: 0
   moveY: 7
 --- !u!61 &137551741
@@ -638,11 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 1
   wait: 1
-  isKieru: 0
-  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
-  isChild: 0
   moveX: 0
   moveY: 8
 --- !u!61 &180862257
@@ -2202,11 +2196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
-  isKieru: 0
-  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
-  isChild: 0
   moveX: 6
   moveY: 0
 --- !u!61 &727734117
@@ -3998,11 +3989,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
-  isKieru: 0
-  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
-  isChild: 0
   moveX: -6
   moveY: 0
 --- !u!61 &1743821653
@@ -5261,10 +5249,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -82.32202
       objectReference: {fileID: 0}
-    - target: {fileID: 646339692444314569, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
-      propertyPath: sceneName
-      value: Title0803
-      objectReference: {fileID: 0}
     - target: {fileID: 757936435003947520, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 80
@@ -5335,7 +5319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3880329975193283015, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: sceneName
-      value: hiraki0803_2
+      value: 0803nunomuraver
       objectReference: {fileID: 0}
     - target: {fileID: 3956078648135599231, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Resource
@@ -5371,11 +5355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6836092952488198923, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 123.97
+      value: 121.17
       objectReference: {fileID: 0}
     - target: {fileID: 6836092952488198923, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -361
+      value: -395.92
       objectReference: {fileID: 0}
     - target: {fileID: 6941978422546670783, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5387,11 +5371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6941978422546670783, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 123.97
+      value: 123.96997
       objectReference: {fileID: 0}
     - target: {fileID: 6941978422546670783, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -152
+      value: -193.17
       objectReference: {fileID: 0}
     - target: {fileID: 7090470485583512862, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_SizeDelta.x

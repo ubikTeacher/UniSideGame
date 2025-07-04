@@ -2,16 +2,14 @@ using UnityEngine;
 using UnityEngine.UI; //UIの部品使用しているので入れておく
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;//TextMeshPro用
+using TMPro;//TextMeshPro用
 
 public class GameManager : MonoBehaviour
 {
     //サウンド設定追加
     public AudioClip acGameOver;//ゲームオーバー
     public AudioClip acGameClear;//ゲームクリア
-    public GameObject defaultSelectedButton; // ← ここに「リプレイボタン」を指定
+
     //スコア追加
     public GameObject scoreText;  //スコアテキスト格納用
     public static int totalScore; //合計スコア
@@ -62,25 +60,8 @@ public class GameManager : MonoBehaviour
         //Debug.Log(PlayerController.gameState);
         if (PlayerController.gameState == "gameclear")
         {
-            string stageName = SceneManager.GetActiveScene().name;
 
-            if(stageName == "hiraki0803_2")
-            {
-                TitleManager.isClear_H = true;
-            }
-            else if (stageName == "inoue0803")
-            {
-                TitleManager.isClear_I = true;
-            }
-            else if (stageName == "0803Shibutani")
-            {
-                TitleManager.isClear_S = true;
-            }
-            else if (stageName == "0803nunomuraver")
-            {
-                TitleManager.isClear_N = true;
-            }
-            if (InputUI != null) InputUI.SetActive(false);
+            InputUI.SetActive(false);
             //ゲームクリアになったら
             //ゲームクリアの画像を表示する
             mainImage.SetActive(true);
@@ -114,14 +95,10 @@ public class GameManager : MonoBehaviour
                 //ゲームクリアの音を鳴らす
                 soundPlayer.PlayOneShot(this.acGameClear);
             }
-
-            EventSystem.current.SetSelectedGameObject(null);
-            // 次のフレームで選択（これがコツ）
-            StartCoroutine(SetDefaultButtonNextFrame());
         }
         else if (PlayerController.gameState == "gameover")
         {
-            if(InputUI!=null)InputUI.SetActive(false);
+            InputUI.SetActive(false);
 
             //ゲームオーバーになったら
             //ゲームオーバーの画像を表示する
@@ -159,13 +136,16 @@ public class GameManager : MonoBehaviour
                 //ゲームクリアの音を鳴らす
                 soundPlayer.PlayOneShot(this.acGameOver);
             }
-
-            EventSystem.current.SetSelectedGameObject(null);
-            // 次のフレームで選択（これがコツ）
-            StartCoroutine(SetDefaultButtonNextFrame());
         }
         else if (PlayerController.gameState == "playing")
         {
+            if (this.timeCnt != null)
+            {
+                //タイムテキストを更新
+                this.timeText.GetComponent<TMP_Text>().text
+                    = this.timeCnt.displayTime.ToString("F1");
+            }
+
             GameObject player
                 = GameObject.FindGameObjectWithTag("Player");
             PlayerController pc
@@ -178,17 +158,6 @@ public class GameManager : MonoBehaviour
                 pc.score = 0;
                 UpdateScore();
             }
-
-            if (this.timeCnt != null)
-            {
-                //タイムテキストを更新
-                this.timeText.GetComponent<TMP_Text>().text
-                    = this.timeCnt.displayTime.ToString("F1");
-                if(this.timeCnt.displayTime==0)
-                {
-                    pc.GameOver();
-                }
-            }
         }
 
         if (PlayerController.isGetTime == true)
@@ -197,11 +166,7 @@ public class GameManager : MonoBehaviour
             PlayerController.isGetTime = false;
         }
     }
-    private System.Collections.IEnumerator SetDefaultButtonNextFrame()
-    {
-        yield return null; // 1フレーム待つ
-        EventSystem.current.SetSelectedGameObject(defaultSelectedButton);
-    }
+
     public void Jump()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
