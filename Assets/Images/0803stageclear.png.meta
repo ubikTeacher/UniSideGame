@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1ba653c2bdbd95c4a82388c945d44403
+guid: c44c892d98678bb4aa657fba38a621d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3551361827585209473
-    second: halloweene_0
+      213: -3237304413555070748
+    second: 0803stageclear_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: halloweene_0
+      name: 0803stageclear_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 750
-        height: 422
+        x: 59
+        y: 849
+        width: 1971
+        height: 1045
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7bc6e5db3707bec0800000000000000
-      internalID: -3551361827585209473
+      spriteID: 4e8ee30b9c8c213d0800000000000000
+      internalID: -3237304413555070748
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      halloweene_0: -3551361827585209473
+      0803stageclear_0: -3237304413555070748
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
