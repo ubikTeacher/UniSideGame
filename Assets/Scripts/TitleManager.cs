@@ -14,22 +14,32 @@ public class TitleManager : MonoBehaviour
     public GameObject button_I;
     public GameObject button_S;
     public GameObject button_N;
+    public GameObject clear_NK;
+    public GameObject clear_NI;
+    public GameObject clear_SK;
+    public GameObject button_NK;
+    public GameObject button_NI;
+    public GameObject button_SK;
     public static bool isClear_H = false;
     public static bool isClear_I = false;
     public static bool isClear_S = false;
     public static bool isClear_N = false;
+    public static bool isClear_NK = false;
+    public static bool isClear_NI = false;
+    public static bool isClear_SK = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         EventSystem.current.SetSelectedGameObject(null);
-        // Ÿ‚ÌƒtƒŒ[ƒ€‚Å‘I‘ği‚±‚ê‚ªƒRƒcj
+        // ï¿½ï¿½ï¿½Ìƒtï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Å‘Iï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ê‚ªï¿½Rï¿½cï¿½j
+        /* ä¸‹è¨˜ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’æ®‹ã‚Šã®ï¼“äººåˆ†(SK,NKI,NKK)è¿½åŠ  */
         StartCoroutine(SetDefaultButtonNextFrame());
 
         if (isClear_H)
         {
             clear_H.SetActive(true);
-            button_H.GetComponent<Button>().interactable=false;
+            button_H.GetComponent<Button>().interactable = false;
         }
         else
         {
@@ -64,15 +74,15 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
-        
+
     }
 
     private System.Collections.IEnumerator SetDefaultButtonNextFrame()
     {
-        yield return null; // 1ƒtƒŒ[ƒ€‘Ò‚Â
+        yield return null; // 1ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ò‚ï¿½
         EventSystem.current.SetSelectedGameObject(defaultSelectedButton);
     }
 }
