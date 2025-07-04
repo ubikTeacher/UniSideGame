@@ -139,13 +139,6 @@ public class GameManager : MonoBehaviour
         }
         else if (PlayerController.gameState == "playing")
         {
-            if (this.timeCnt != null)
-            {
-                //タイムテキストを更新
-                this.timeText.GetComponent<TMP_Text>().text
-                    = this.timeCnt.displayTime.ToString("F1");
-            }
-
             GameObject player
                 = GameObject.FindGameObjectWithTag("Player");
             PlayerController pc
@@ -157,6 +150,17 @@ public class GameManager : MonoBehaviour
                     += pc.score;
                 pc.score = 0;
                 UpdateScore();
+            }
+
+            if (this.timeCnt != null)
+            {
+                //タイムテキストを更新
+                this.timeText.GetComponent<TMP_Text>().text
+                    = this.timeCnt.displayTime.ToString("F1");
+                if(this.timeCnt.displayTime==0)
+                {
+                    pc.GameOver();
+                }
             }
         }
 
