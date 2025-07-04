@@ -60,11 +60,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(PlayerController.gameState);
+        /* 下記のプログラムを残りの３人(SK,NKI,NKK)追加する */
         if (PlayerController.gameState == "gameclear")
         {
             string stageName = SceneManager.GetActiveScene().name;
 
-            if(stageName == "hiraki0803_2")
+            if (stageName == "hiraki0803_2")
             {
                 TitleManager.isClear_H = true;
             }
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour
         }
         else if (PlayerController.gameState == "gameover")
         {
-            if(InputUI!=null)InputUI.SetActive(false);
+            if (InputUI != null) InputUI.SetActive(false);
 
             //ゲームオーバーになったら
             //ゲームオーバーの画像を表示する
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
             //メインイメージの画像をGameOverの画像に切り替える
             Image mimg = mainImage.GetComponent<Image>();
             mimg.sprite = this.gameOverSpr;
-            if (this.mainImage2 != null) 
+            if (this.mainImage2 != null)
             {
                 mimg.transform.position = new Vector2(mimg.transform.position.x + 4, mimg.transform.position.y);
             }
@@ -184,7 +185,7 @@ public class GameManager : MonoBehaviour
                 //タイムテキストを更新
                 this.timeText.GetComponent<TMP_Text>().text
                     = this.timeCnt.displayTime.ToString("F1");
-                if(this.timeCnt.displayTime==0)
+                if (this.timeCnt.displayTime == 0)
                 {
                     pc.GameOver();
                 }

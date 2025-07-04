@@ -563,8 +563,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 7
   moveY: 0
 --- !u!61 &457237201
@@ -1143,6 +1146,8 @@ MonoBehaviour:
   goalAnime: PlayerGoal
   overAnime: PlayerOver
   score: 0
+  isClearItemCount: 0
+  GoalCount: 5
 --- !u!95 &554965448
 Animator:
   serializedVersion: 7
@@ -2776,8 +2781,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: -6
   moveY: 1
 --- !u!61 &1743821653
@@ -3069,8 +3077,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 5
   moveY: 5
 --- !u!1 &1909207529
@@ -3171,8 +3182,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 2
   wait: 0
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 10
   moveY: 0
 --- !u!1001 &1993152501
@@ -3728,7 +3742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 605896952749341663, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -137.27753
+      value: -137.27759
       objectReference: {fileID: 0}
     - target: {fileID: 605896952749341663, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3772,7 +3786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -36.242004
+      value: -36.241943
       objectReference: {fileID: 0}
     - target: {fileID: 3076225386997898373, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Sprite
