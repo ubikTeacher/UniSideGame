@@ -325,7 +325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 123.97, y: -193.17}
+  m_AnchoredPosition: {x: 123.98, y: -163}
   m_SizeDelta: {x: 556.4301, y: 152.88}
   m_Pivot: {x: 0.5, y: 0.16805434}
 --- !u!222 &5561197925521183678
@@ -1148,6 +1148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d0de1010e3671468dc90f45eb74c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acGameOver: {fileID: 0}
+  acGameClear: {fileID: 0}
   scoreText: {fileID: 1184932049353232017}
   stageScore: 0
   gameOverSpr: {fileID: 21300000, guid: fce1dd99bc0954283be67e176016ef02, type: 3}
@@ -1156,8 +1158,10 @@ MonoBehaviour:
   restartBtn: {fileID: 8805436770101623050}
   nextBtn: {fileID: 762145615724327629}
   mainImage: {fileID: 3320105055657081260}
+  mainImage2: {fileID: 0}
   timeBar: {fileID: 8795424071143986609}
   timeText: {fileID: 151219256951356991}
+  InputUI: {fileID: 0}
 --- !u!114 &7658507375910048592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,7 +1371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8136129481605937699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1621,7 +1625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 123.97, y: -372.46866}
+  m_AnchoredPosition: {x: 123.98, y: -353}
   m_SizeDelta: {x: 556.44, y: 139.5381}
   m_Pivot: {x: 0.5, y: 0.16805434}
 --- !u!222 &8508606807952727272
@@ -1730,7 +1734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d989af9f4875e3a40908f948c90bb886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Title
+  sceneName: Title0803
 --- !u!1 &8795424071143986609
 GameObject:
   m_ObjectHideFlags: 0

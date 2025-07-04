@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         if (PlayerController.gameState == "gameclear")
         {
 
-            InputUI.SetActive(false);
+            if (InputUI != null) InputUI.SetActive(false);
             //ゲームクリアになったら
             //ゲームクリアの画像を表示する
             mainImage.SetActive(true);
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         }
         else if (PlayerController.gameState == "gameover")
         {
-            InputUI.SetActive(false);
+            if(InputUI!=null)InputUI.SetActive(false);
 
             //ゲームオーバーになったら
             //ゲームオーバーの画像を表示する
