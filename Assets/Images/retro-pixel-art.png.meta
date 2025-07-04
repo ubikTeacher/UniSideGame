@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ac2ccdeb637c3684abb7e8e4f113678e
+guid: c8fe423a47921ce4aa98d2de5df308f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -973067191959099394
-    second: halloween 1_0
+      213: 960626421885031795
+    second: retro-pixel-art_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: halloween 1_0
+      name: retro-pixel-art_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 116
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef7e0b06b88fe72f0800000000000000
-      internalID: -973067191959099394
+      spriteID: 375df4e14a4d45d00800000000000000
+      internalID: 960626421885031795
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      halloween 1_0: -973067191959099394
+      retro-pixel-art_0: 960626421885031795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
