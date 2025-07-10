@@ -462,8 +462,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 6
   moveY: 0
 --- !u!61 &457237201
@@ -967,7 +970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041bd113c6798e149b3fd7b18433c511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acGetitem: {fileID: 0}
+  shieldText: {fileID: 0}
+  isShield: 0
   jump: 9
+  speed: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -977,6 +984,8 @@ MonoBehaviour:
   goalAnime: PlayerGoal
   overAnime: PlayerOver
   score: 0
+  isClearItemCount: 0
+  GoalCount: 5
 --- !u!95 &554965448
 Animator:
   serializedVersion: 7
@@ -2633,8 +2642,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: -6
   moveY: 0
 --- !u!61 &1743821653
@@ -3453,12 +3465,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 8782975022117321849, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782975022117321849, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 134
+      value: 123.98
       objectReference: {fileID: 0}
     - target: {fileID: 8782975022117321849, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -26
+      value: 74.975
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
