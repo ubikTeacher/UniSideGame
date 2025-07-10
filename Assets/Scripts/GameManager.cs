@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject defaultSelectedButton; // ← ここに「リプレイボタン」を指定
     //スコア追加
     public GameObject scoreText;  //スコアテキスト格納用
+    public GameObject lifeText;  //ライフテキスト格納用
     public static int totalScore; //合計スコア
     public int stageScore = 0;    //ステージスコア
 
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        lifeText.GetComponent<TMP_Text>().text = TitleManager.Life.ToString();
+
         //GAMESTARTを非表示に設定
         Invoke("SetActiveMainImage", 1.0f);
         //パネルを非表示に設定
@@ -80,6 +83,18 @@ public class GameManager : MonoBehaviour
             else if (stageName == "0803nunomuraver")
             {
                 TitleManager.isClear_N = true;
+            }
+            else if (stageName == "nakamura")
+            {
+                TitleManager.isClear_NI = true;
+            }
+            else if (stageName == "nakazima")
+            {
+                TitleManager.isClear_NK = true;
+            }
+            else if (stageName == "sagarasense")
+            {
+                TitleManager.isClear_SK = true;
             }
             if (InputUI != null) InputUI.SetActive(false);
             //ゲームクリアになったら
@@ -122,6 +137,8 @@ public class GameManager : MonoBehaviour
         }
         else if (PlayerController.gameState == "gameover")
         {
+            TitleManager.Life -= 1;
+
             if (InputUI != null) InputUI.SetActive(false);
 
             //ゲームオーバーになったら

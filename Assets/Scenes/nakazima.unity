@@ -680,6 +680,8 @@ MonoBehaviour:
   goalAnime: PlayerGoal
   overAnime: PlayerOver
   score: 0
+  isClearItemCount: 0
+  GoalCount: 5
 --- !u!95 &554965448
 Animator:
   serializedVersion: 7
@@ -2121,12 +2123,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 122.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -84.30371
+      value: -160.72003
       objectReference: {fileID: 0}
     - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -36.242004
+      value: -61.46
       objectReference: {fileID: 0}
     - target: {fileID: 1907723780800316660, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Color.b
@@ -2142,7 +2148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3072667410924678244, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3354902399484284275, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Color.b
@@ -2164,6 +2170,14 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 3941143951790301539, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941143951790301539, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 4093051098492545783, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2179,6 +2193,14 @@ PrefabInstance:
     - target: {fileID: 4649512315830420236, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Color.r
       value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678891076576580591, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 86.719925
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678891076576580591, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.000011
       objectReference: {fileID: 0}
     - target: {fileID: 6836092952488198923, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2224,6 +2246,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7141911611756337219, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8782975022117321849, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_SizeDelta.x
       value: 450

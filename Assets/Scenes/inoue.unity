@@ -352,8 +352,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 2
   wait: 1.5
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 6
   moveY: 0
 --- !u!61 &457237201
@@ -801,7 +804,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041bd113c6798e149b3fd7b18433c511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acGetitem: {fileID: 0}
+  shieldText: {fileID: 0}
+  isShield: 0
   jump: 6
+  speed: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -811,6 +818,8 @@ MonoBehaviour:
   goalAnime: PlayerGoal
   overAnime: PlayerOver
   score: 0
+  isClearItemCount: 0
+  GoalCount: 5
 --- !u!95 &554965448
 Animator:
   serializedVersion: 7
@@ -914,8 +923,8 @@ Transform:
   m_GameObject: {fileID: 586679281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09, y: 0.0255, z: 10}
-  m_LocalScale: {x: 1, y: 1.10313, z: 0.93813}
+  m_LocalPosition: {x: 0.0034, y: 0.0885, z: 10}
+  m_LocalScale: {x: 1.0103, y: 1.1168088, z: 0.93813}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -1037,8 +1046,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 2
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 0
   moveY: 3
 --- !u!61 &819980453
@@ -2408,8 +2420,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 3
   wait: 1
+  isKieru: 0
+  kieruTime: 3
   isMoveOn: 0
   isMoving: 1
+  isChild: 0
   moveX: 6
   moveY: 0
 --- !u!61 &1743821653
@@ -3089,12 +3104,20 @@ PrefabInstance:
       value: -82.32202
       objectReference: {fileID: 0}
     - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 311.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 141.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -84.30371
+      value: -155.81
       objectReference: {fileID: 0}
     - target: {fileID: 1498528268214675518, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -36.242004
+      value: -70.850006
       objectReference: {fileID: 0}
     - target: {fileID: 3956078648135599231, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_Resource
