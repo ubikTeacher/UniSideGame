@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
                 UpdateScore();
             }
 
-            if (this.timeCnt != null)
+            if (this.timeCnt != null && this.timeCnt.isCountDown)
             {
                 //タイムテキストを更新
                 this.timeText.GetComponent<TMP_Text>().text
