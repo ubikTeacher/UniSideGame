@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     //スコア追加
     public GameObject scoreText;  //スコアテキスト格納用
     public GameObject lifeText;  //ライフテキスト格納用
-    public static int totalScore; //合計スコア
     public int stageScore = 0;    //ステージスコア
 
     //ゲームオーバー用画像設定用
@@ -131,6 +130,9 @@ public class GameManager : MonoBehaviour
                 soundPlayer.PlayOneShot(this.acGameClear);
             }
 
+            //スコア更新
+            TitleManager.Score += this.stageScore;
+
             EventSystem.current.SetSelectedGameObject(null);
             // 次のフレームで選択（これがコツ）
             StartCoroutine(SetDefaultButtonNextFrame());
@@ -232,7 +234,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void UpdateScore()
     {
-        int score = this.stageScore + totalScore;
+        int score = this.stageScore + TitleManager.Score;
         this.scoreText.GetComponent<TMP_Text>().text
                             = score.ToString();
     }
