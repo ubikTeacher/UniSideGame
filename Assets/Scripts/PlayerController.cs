@@ -253,6 +253,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (gameState == "gameend")
         {
             return;
