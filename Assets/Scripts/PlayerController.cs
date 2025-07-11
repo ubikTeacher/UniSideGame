@@ -306,12 +306,20 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        //ぶつかった物体のタグがScoreItemかチェック
-        if (collision.gameObject.tag == "TimeItem")
+        //ぶつかった物体のタグがWarpかチェック
+        if (collision.gameObject.tag == "Warp")
         {
-            isGetTime = true;
-            Destroy(collision.gameObject);
+            this.transform.position = new Vector3(collision.gameObject.GetComponent<WarpContoroller>().WarpX,
+             collision.gameObject.GetComponent<WarpContoroller>().WarpY, 0);
+            collision.gameObject.GetComponent<WarpContoroller>().yazirusi_hyouzi();
         }
+
+        //ぶつかった物体のタグがScoreItemかチェック
+            if (collision.gameObject.tag == "TimeItem")
+            {
+                isGetTime = true;
+                Destroy(collision.gameObject);
+            }
     }
 
     /// <summary>

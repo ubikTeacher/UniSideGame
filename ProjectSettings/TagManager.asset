@@ -8,6 +8,7 @@ TagManager:
   - Dead
   - ScoreItem
   - TimeItem
+  - Warp
   layers:
   - Default
   - TransparentFX
