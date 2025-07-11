@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         lifeText.GetComponent<TMP_Text>().text = TitleManager.Life.ToString();
+        scoreText.GetComponent<TMP_Text>().text = TitleManager.Score.ToString();
 
         //GAMESTARTを非表示に設定
         Invoke("SetActiveMainImage", 1.0f);
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour
             }
 
             //スコア更新
-            TitleManager.Score += this.stageScore;
+            //TitleManager.Score += this.stageScore;
 
             EventSystem.current.SetSelectedGameObject(null);
             // 次のフレームで選択（これがコツ）
@@ -140,6 +141,7 @@ public class GameManager : MonoBehaviour
         else if (PlayerController.gameState == "gameover")
         {
             TitleManager.Life -= 1;
+            lifeText.GetComponent<TMP_Text>().text = TitleManager.Life.ToString();
 
             if (InputUI != null) InputUI.SetActive(false);
 
@@ -193,7 +195,7 @@ public class GameManager : MonoBehaviour
             //スコア更新
             if (pc.score != 0)
             {
-                this.stageScore
+                TitleManager.Score
                     += pc.score;
                 pc.score = 0;
                 UpdateScore();
@@ -234,9 +236,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void UpdateScore()
     {
-        int score = this.stageScore + TitleManager.Score;
+        //int score = this.stageScore + TitleManager.Score;
         this.scoreText.GetComponent<TMP_Text>().text
-                            = score.ToString();
+                            = TitleManager.Score.ToString();
     }
 
 
