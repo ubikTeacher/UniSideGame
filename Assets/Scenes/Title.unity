@@ -2184,9 +2184,9 @@ MonoBehaviour:
   clear_H: {fileID: 116569223}
   clear_I: {fileID: 2145735864}
   clear_S: {fileID: 866534415}
-  clear_N: {fileID: 1407676533}
+  clear_N: {fileID: 673879570}
   clear_NK: {fileID: 125115994}
-  clear_NI: {fileID: 673879570}
+  clear_NI: {fileID: 1407676533}
   clear_SK: {fileID: 788657693}
   button_H: {fileID: 759870962}
   button_I: {fileID: 2006504386}
