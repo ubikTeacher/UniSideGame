@@ -2789,7 +2789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314352925450370349, guid: e04c83ba1f2b42240a04b32fdce2397b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7314352925450370349, guid: e04c83ba1f2b42240a04b32fdce2397b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3546,7 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 7658507375910048592, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: gameTime
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7658507375910048592, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: isTimeOver
