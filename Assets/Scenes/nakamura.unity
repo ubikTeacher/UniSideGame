@@ -129,11 +129,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: m_Size.x
-      value: 2.1525571
+      value: 2.2751906
+      objectReference: {fileID: 0}
+    - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
+      propertyPath: m_Size.y
+      value: 0.09359348
       objectReference: {fileID: 0}
     - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: m_Offset.x
-      value: -0.00051796436
+      value: 0.0041986704
+      objectReference: {fileID: 0}
+    - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.46390373
       objectReference: {fileID: 0}
     - target: {fileID: 700356778770574564, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: m_Color.b
@@ -1158,7 +1166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 3.335, y: -7.847, z: -0.379}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.45, y: 3.5}
+  m_AnchoredPosition: {x: -7.31, y: -2.17}
   m_SizeDelta: {x: 1.8, y: 0}
   m_Pivot: {x: 0.5, y: -0}
 --- !u!50 &554965445
@@ -1242,6 +1250,7 @@ MonoBehaviour:
   isShield: 0
   jump: 5
   speed: 4
+  isJump: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3718,11 +3727,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: m_Size.x
-      value: 2.1789594
+      value: 2.3770585
+      objectReference: {fileID: 0}
+    - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
+      propertyPath: m_Size.y
+      value: 0.13216615
       objectReference: {fileID: 0}
     - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: m_Offset.x
-      value: 0.0017979741
+      value: -0.0029187202
+      objectReference: {fileID: 0}
+    - target: {fileID: -2320375842584274715, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.463534
       objectReference: {fileID: 0}
     - target: {fileID: 587081778527562024, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: moveX
@@ -3731,6 +3748,14 @@ PrefabInstance:
     - target: {fileID: 587081778527562024, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: moveY
       value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043396007869505281, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
+      propertyPath: m_Size.x
+      value: 2.3239229
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043396007869505281, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.013141751
       objectReference: {fileID: 0}
     - target: {fileID: 2361729288569321484, guid: b21016fc3f2c5e04db6163b074d43a99, type: 3}
       propertyPath: m_Name
