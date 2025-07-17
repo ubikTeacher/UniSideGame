@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             }
 
             //スコア更新
-            //TitleManager.Score += this.stageScore;
+            //TitleManager.Score += this.goalPoint;
 
             EventSystem.current.SetSelectedGameObject(null);
             // 次のフレームで選択（これがコツ）

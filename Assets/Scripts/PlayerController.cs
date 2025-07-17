@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UIElements;
 
 ///<summary>
 ///プレイヤーを操作するクラス
@@ -74,6 +75,11 @@ public class PlayerController : MonoBehaviour
     public bool isClearItemCount=false;
     public int GoalCount = 5;
     private int ItemCount = 0;
+
+    //ゴールしたときのボーナスポイント
+    public int goalPoint = 100;
+
+    public GameObject pointTextPrefab; // 作成したプレハブをInspectorで設定
 
     /// 初めに1回だけ実行される
     void Start()
@@ -271,6 +277,20 @@ public class PlayerController : MonoBehaviour
             {
                 GameClear();
             }
+
+            // プレハブを指定位置に生成
+            GameObject popup = Instantiate(pointTextPrefab
+                                            , collision.gameObject.transform.position
+                                            , Quaternion.identity);
+
+            // テキストを設定
+            TextMeshProUGUI text = popup.GetComponentInChildren<TextMeshProUGUI>();
+            text.text = "+" + this.goalPoint.ToString();
+            TitleManager.Score += this.goalPoint;
+
+            // 上方向に移動しながらフェードアウト
+            popup.transform.Translate(Vector3.up * 1.0f);
+            Destroy(popup, 3.0f); // 1.5秒後に削除
         }
         //ぶつかった物体のタグがDeadかチェック
         if (collision.gameObject.tag == "Dead")
@@ -332,7 +352,19 @@ public class PlayerController : MonoBehaviour
 
         this.score = item.value;
 
-        //破棄する（消す）
+        // プレハブを指定位置に生成
+        GameObject popup = Instantiate(pointTextPrefab
+                                        , collision.gameObject.transform.position
+                                        , Quaternion.identity);
+
+        // テキストを設定
+        TextMeshProUGUI text = popup.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = "+" + this.score.ToString();
+
+        // 上方向に移動しながらフェードアウト
+        popup.transform.Translate(Vector3.up * 1.0f);
+        Destroy(popup, 1.5f); // 1.5秒後に削除
+                              //破棄する（消す）
         Destroy(collision.gameObject);
     }
 
