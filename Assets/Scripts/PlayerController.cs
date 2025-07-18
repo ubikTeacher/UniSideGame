@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
 {
     //サウンド設定追加
     public AudioClip acGetitem;//ゲットアイテム
-    public AudioClip acJump;//
+    public AudioClip acJump;//ジャンプ音
+    public AudioClip acWarp;//ワープ音
 
     public GameObject shieldText;
     public bool isShield = false;
@@ -345,6 +346,17 @@ public class PlayerController : MonoBehaviour
             this.transform.position = new Vector3(collision.gameObject.GetComponent<WarpContoroller>().WarpX,
              collision.gameObject.GetComponent<WarpContoroller>().WarpY, 0);
             collision.gameObject.GetComponent<WarpContoroller>().yazirusi_hyouzi();
+            //音をならす
+            //ジャンプ音を再生
+            if (acWarp != null)
+            {
+                AudioSource soundPlayer = GetComponent<AudioSource>();
+                if (soundPlayer != null)
+                {
+                    //ジャンプ音を鳴らす
+                    soundPlayer.PlayOneShot(this.acWarp);
+                }
+            }
         }
 
         //ぶつかった物体のタグがScoreItemかチェック

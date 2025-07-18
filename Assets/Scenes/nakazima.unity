@@ -291,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.011764706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -365,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.011764706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1129,6 +1129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acGetitem: {fileID: 8300000, guid: 2df74121fbe20ed4795953fd42dadf46, type: 3}
   acJump: {fileID: 8300000, guid: 12bd04b73ee03684790c1b5b1e40fea6, type: 3}
+  acWarp: {fileID: 8300000, guid: 431e8331665367f47a98873a50657226, type: 3}
   shieldText: {fileID: 0}
   isShield: 0
   jump: 6.5
@@ -1364,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.011764706
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.b
@@ -1445,7 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.011764706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4134,7 +4135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.011764706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4877,7 +4878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8957055353785135577, guid: f788fd1ce3804a349852e8d034fe5387, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 0.011764706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5283,6 +5284,10 @@ PrefabInstance:
     - target: {fileID: 605896952749341663, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 72.04135
+      objectReference: {fileID: 0}
+    - target: {fileID: 646339692444314569, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: sceneName
+      value: Title_nakazima
       objectReference: {fileID: 0}
     - target: {fileID: 762145615724327629, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_IsActive

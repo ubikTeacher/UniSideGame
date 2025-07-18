@@ -1431,6 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acGetitem: {fileID: 8300000, guid: 1220d41b311f092499fd510010b0ab1d, type: 3}
+  acJump: {fileID: 8300000, guid: 85150650c185ab64389241a3adfb2c56, type: 3}
   shieldText: {fileID: 0}
   isShield: 0
   jump: 5
@@ -1446,6 +1447,7 @@ MonoBehaviour:
   score: 0
   isClearItemCount: 0
   GoalCount: 5
+  goalPoint: 100
   pointTextPrefab: {fileID: 3830516548507909071, guid: 47c7b3f90ec4fac48990c99a7e0f2e4d, type: 3}
 --- !u!95 &554965448
 Animator:
