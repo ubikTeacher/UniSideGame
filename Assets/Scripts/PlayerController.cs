@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     //サウンド設定追加
     public AudioClip acGetitem;//ゲットアイテム
+    public AudioClip acJump;//
 
     public GameObject shieldText;
     public bool isShield = false;
@@ -213,6 +214,17 @@ public class PlayerController : MonoBehaviour
             //瞬間的にプレイヤーにその力を加える
             this.rbody.AddForce(jumpPw
                 , ForceMode2D.Impulse);
+                //音をならす
+            //ジャンプ音を再生
+            if (acJump != null)
+            {
+                AudioSource soundPlayer = GetComponent<AudioSource>();
+                if (soundPlayer != null)
+                {
+                    //ジャンプ音を鳴らす
+                    soundPlayer.PlayOneShot(this.acJump);
+                }
+            }
 
             //ジャンプ中フラグをまたオフにしておく
             this.isJump = false;
@@ -252,6 +264,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Jump!!");
         //ジャンプ中に設定
         this.isJump = true;
+        
     }
     /// <summary>
     /// 当たったときに呼び出される
