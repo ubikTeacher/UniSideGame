@@ -5284,6 +5284,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 72.04135
       objectReference: {fileID: 0}
+    - target: {fileID: 646339692444314569, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
+      propertyPath: sceneName
+      value: Title_nakazima
+      objectReference: {fileID: 0}
     - target: {fileID: 762145615724327629, guid: 8b718827ed90e654c83fef2dbe271ce9, type: 3}
       propertyPath: m_IsActive
       value: 0
