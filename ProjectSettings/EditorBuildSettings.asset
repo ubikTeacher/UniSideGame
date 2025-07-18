@@ -33,6 +33,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Result.unity
     guid: e3d27e73a281bc44fa1358fc44f002f5
   - enabled: 1
+    path: Assets/Scenes/GameOver_nakazima.unity
+    guid: dc9b6f07b4a41c24fa8a96b9fd61a036
+  - enabled: 1
+    path: Assets/Scenes/Title_nakazima.unity
+    guid: 03bb140714bef6048a58a088a2446dbe
+  - enabled: 1
     path: Assets/Scenes/nakazima.unity
     guid: 19e3a4b5f6e4bcf4a9a970a9612839f2
   - enabled: 1
@@ -50,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0803Shibutani.unity
     guid: 7d10d122460195242ae6739b75029d5d
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: a12bc898d4849bf48a47f1c7947019cb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

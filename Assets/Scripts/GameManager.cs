@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             }
 
             //スコア更新
-            //TitleManager.Score += this.stageScore;
+            //TitleManager.Score += this.goalPoint;
 
             EventSystem.current.SetSelectedGameObject(null);
             // 次のフレームで選択（これがコツ）
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
 
             //ゲームオーバーになったら
             //ゲームオーバーの画像を表示する
-            mainImage.SetActive(true);
+            //mainImage.SetActive(true);
 
             //ボタンが入ってるパネルも表示
             panel.SetActive(true);
@@ -157,12 +157,12 @@ public class GameManager : MonoBehaviour
             nbtn.interactable = false;
 
             //メインイメージの画像をGameOverの画像に切り替える
-            Image mimg = mainImage.GetComponent<Image>();
-            mimg.sprite = this.gameOverSpr;
-            if (this.mainImage2 != null)
-            {
-                mimg.transform.position = new Vector2(mimg.transform.position.x + 4, mimg.transform.position.y);
-            }
+            // Image mimg = mainImage.GetComponent<Image>();
+            // mimg.sprite = this.gameOverSpr;
+            // if (this.mainImage2 != null)
+            // {
+            //     mimg.transform.position = new Vector2(mimg.transform.position.x + 4, mimg.transform.position.y);
+            // }
             //ステータスをゲーム終了にする
             PlayerController.gameState = "gameend";
 

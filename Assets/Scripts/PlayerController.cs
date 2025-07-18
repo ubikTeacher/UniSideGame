@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UIElements;
 
 ///<summary>
 ///プレイヤーを操作するクラス
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     //サウンド設定追加
     public AudioClip acGetitem;//ゲットアイテム
+    public AudioClip acJump;//
 
     public GameObject shieldText;
     public bool isShield = false;
@@ -74,6 +76,11 @@ public class PlayerController : MonoBehaviour
     public bool isClearItemCount=false;
     public int GoalCount = 5;
     private int ItemCount = 0;
+
+    //ゴールしたときのボーナスポイント
+    public int goalPoint = 100;
+
+    public GameObject pointTextPrefab; // 作成したプレハブをInspectorで設定
 
     /// 初めに1回だけ実行される
     void Start()
@@ -207,6 +214,17 @@ public class PlayerController : MonoBehaviour
             //瞬間的にプレイヤーにその力を加える
             this.rbody.AddForce(jumpPw
                 , ForceMode2D.Impulse);
+                //音をならす
+            //ジャンプ音を再生
+            if (acJump != null)
+            {
+                AudioSource soundPlayer = GetComponent<AudioSource>();
+                if (soundPlayer != null)
+                {
+                    //ジャンプ音を鳴らす
+                    soundPlayer.PlayOneShot(this.acJump);
+                }
+            }
 
             //ジャンプ中フラグをまたオフにしておく
             this.isJump = false;
@@ -246,6 +264,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Jump!!");
         //ジャンプ中に設定
         this.isJump = true;
+        
     }
     /// <summary>
     /// 当たったときに呼び出される
@@ -271,6 +290,20 @@ public class PlayerController : MonoBehaviour
             {
                 GameClear();
             }
+
+            // プレハブを指定位置に生成
+            GameObject popup = Instantiate(pointTextPrefab
+                                            , collision.gameObject.transform.position
+                                            , Quaternion.identity);
+
+            // テキストを設定
+            TextMeshProUGUI text = popup.GetComponentInChildren<TextMeshProUGUI>();
+            text.text = "+" + this.goalPoint.ToString();
+            TitleManager.Score += this.goalPoint;
+
+            // 上方向に移動しながらフェードアウト
+            popup.transform.Translate(Vector3.up * 1.0f);
+            Destroy(popup, 3.0f); // 1.5秒後に削除
         }
         //ぶつかった物体のタグがDeadかチェック
         if (collision.gameObject.tag == "Dead")
@@ -306,12 +339,20 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        //ぶつかった物体のタグがScoreItemかチェック
-        if (collision.gameObject.tag == "TimeItem")
+        //ぶつかった物体のタグがWarpかチェック
+        if (collision.gameObject.tag == "Warp")
         {
-            isGetTime = true;
-            Destroy(collision.gameObject);
+            this.transform.position = new Vector3(collision.gameObject.GetComponent<WarpContoroller>().WarpX,
+             collision.gameObject.GetComponent<WarpContoroller>().WarpY, 0);
+            collision.gameObject.GetComponent<WarpContoroller>().yazirusi_hyouzi();
         }
+
+        //ぶつかった物体のタグがScoreItemかチェック
+            if (collision.gameObject.tag == "TimeItem")
+            {
+                isGetTime = true;
+                Destroy(collision.gameObject);
+            }
     }
 
     /// <summary>
@@ -324,7 +365,19 @@ public class PlayerController : MonoBehaviour
 
         this.score = item.value;
 
-        //破棄する（消す）
+        // プレハブを指定位置に生成
+        GameObject popup = Instantiate(pointTextPrefab
+                                        , collision.gameObject.transform.position
+                                        , Quaternion.identity);
+
+        // テキストを設定
+        TextMeshProUGUI text = popup.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = "+" + this.score.ToString();
+
+        // 上方向に移動しながらフェードアウト
+        popup.transform.Translate(Vector3.up * 1.0f);
+        Destroy(popup, 1.5f); // 1.5秒後に削除
+                              //破棄する（消す）
         Destroy(collision.gameObject);
     }
 
