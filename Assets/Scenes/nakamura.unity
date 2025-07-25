@@ -1430,8 +1430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041bd113c6798e149b3fd7b18433c511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 5b70f68f87fc25243b25b0ea46e50ec6, type: 3}
   acGetitem: {fileID: 8300000, guid: 1220d41b311f092499fd510010b0ab1d, type: 3}
-  acJump: {fileID: 8300000, guid: 85150650c185ab64389241a3adfb2c56, type: 3}
+  acJump: {fileID: 8300000, guid: 12bd04b73ee03684790c1b5b1e40fea6, type: 3}
   acWarp: {fileID: 0}
   shieldText: {fileID: 0}
   isShield: 0

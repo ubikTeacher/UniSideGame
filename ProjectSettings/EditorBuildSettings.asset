@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 9cc253e71a1390445bd54a121c5f5fb2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Title_nakazima.unity
     guid: 03bb140714bef6048a58a088a2446dbe
   - enabled: 0
@@ -26,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/nakamura.unity
     guid: 75641675c545c36409ad5a89d0e6fe83
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/sagarasense.unity
     guid: 6d2fb4241f87a6b43b2cab22fd5a4c18
   - enabled: 0
@@ -35,10 +35,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Result.unity
     guid: e3d27e73a281bc44fa1358fc44f002f5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameOver_nakazima.unity
     guid: dc9b6f07b4a41c24fa8a96b9fd61a036
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/nakazima.unity
     guid: 19e3a4b5f6e4bcf4a9a970a9612839f2
   - enabled: 0
@@ -60,5 +60,6 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: a12bc898d4849bf48a47f1c7947019cb
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 4eb1bd15e07f9184b9bcbb196317bb9a, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -3,12 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+
 
 ///<summary>
 ///プレイヤーを操作するクラス
 ///</summary>
 public class PlayerController : MonoBehaviour
 {
+    public InputActionAsset actions; // インスペクターからアタッチするため
+
+    private InputAction moveAction;
+    private InputAction jumpAction;
+
+    void OnEnable()
+    {
+        moveAction = actions.FindAction("Move");
+        moveAction.Enable();
+        jumpAction = actions.FindAction("Jump"); // "Player/Jump"のようなパスも使える
+        jumpAction.Enable();
+        jumpAction.performed += OnJumpPerformed;
+
+    }
+    void OnDisable()
+    {
+        moveAction.Disable();
+        jumpAction.performed -= OnJumpPerformed;
+        jumpAction.Disable();
+
+    }
     //サウンド設定追加
     public AudioClip acGetitem;//ゲットアイテム
     public AudioClip acJump;//ジャンプ音
@@ -83,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject pointTextPrefab; // 作成したプレハブをInspectorで設定
 
+    private int warpCnt = 0; // ワープカウント用
     /// 初めに1回だけ実行される
     void Start()
     {
@@ -113,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
         if(isShield)
         {
-            if (Input.GetKey(KeyCode.Z) && keikajikan == -1 && Shieldcount > 0)
+            if (Keyboard.current[Key.Z].isPressed && keikajikan == -1 && Shieldcount > 0)
             {
                 keikajikan = 0;
                 isShieldOn = true;
@@ -136,13 +160,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //移動
-            if (isMoving == false)
-            {
-                this.inputH = Input.GetAxisRaw("Horizontal");
-            }
+        if (isMoving == false)
+        {
+            Vector2 move = moveAction.ReadValue<Vector2>();
+            this.inputH = move.x;
+        }
 
         //画像の向きを設定
-        if(this.inputH == -1)
+        if (this.inputH == -1)
         {
             //左に進むとき
             transform.localScale
@@ -159,12 +184,6 @@ public class PlayerController : MonoBehaviour
         else if(this.inputH == 0)
         {
             //this.nowAnime = this.stopAnime;
-        }
-    
-        //ジャンプボタンがおされたか
-        if(Input.GetButtonDown("Jump")== true)
-        {
-            Jump();
         }
     }
 
@@ -259,14 +278,17 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    private void OnJumpPerformed(InputAction.CallbackContext context)
+    {
+        Jump();
+    }
 
     public void Jump()
     {
-        Debug.Log("Jump!!");
         //ジャンプ中に設定
-        this.isJump = true;
-        
+        this.isJump = true;        
     }
+
     /// <summary>
     /// 当たったときに呼び出される
     /// </summary>
@@ -343,6 +365,23 @@ public class PlayerController : MonoBehaviour
         //ぶつかった物体のタグがWarpかチェック
         if (collision.gameObject.tag == "Warp")
         {
+            if (collision.gameObject.name=="Warp")
+            {
+                warpCnt += 1;
+                if(warpCnt== 1)
+                {
+                    GameObject yajirusi = GameObject.Find("yazirusi_0 (1)");
+                    if(yajirusi != null)
+                    {
+                        //ワープカウントが2回以上なら、ワープできない
+                        Vector3 scale = yajirusi.transform.localScale; // コピーを取得
+                        scale.x = scale.x*-1;                          // 値を変更
+
+                        yajirusi.transform.localScale = scale;
+                    }
+                }
+            }
+
             this.transform.position = new Vector3(collision.gameObject.GetComponent<WarpContoroller>().WarpX,
              collision.gameObject.GetComponent<WarpContoroller>().WarpY, 0);
             collision.gameObject.GetComponent<WarpContoroller>().yazirusi_hyouzi();

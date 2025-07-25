@@ -1732,6 +1732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041bd113c6798e149b3fd7b18433c511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 5b70f68f87fc25243b25b0ea46e50ec6, type: 3}
   acGetitem: {fileID: 8300000, guid: 2df74121fbe20ed4795953fd42dadf46, type: 3}
   acJump: {fileID: 0}
   acWarp: {fileID: 0}
