@@ -320,9 +320,9 @@ public class PlayerController : MonoBehaviour
                                             , Quaternion.identity);
 
             // テキストを設定
+            //TitleManager.Score += this.goalPoint;
             TextMeshProUGUI text = popup.GetComponentInChildren<TextMeshProUGUI>();
             text.text = "+" + this.goalPoint.ToString();
-            TitleManager.Score += this.goalPoint;
 
             // 上方向に移動しながらフェードアウト
             popup.transform.Translate(Vector3.up * 1.0f);

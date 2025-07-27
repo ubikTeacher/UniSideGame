@@ -132,7 +132,12 @@ public class GameManager : MonoBehaviour
             }
 
             //スコア更新
-            //TitleManager.Score += this.goalPoint;
+            GameObject player
+               = GameObject.FindGameObjectWithTag("Player");
+            PlayerController pc
+                = player.GetComponent<PlayerController>();
+            TitleManager.Score += pc.goalPoint;
+            UpdateScore();
 
             EventSystem.current.SetSelectedGameObject(null);
             // 次のフレームで選択（これがコツ）
