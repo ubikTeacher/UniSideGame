@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         moveAction = actions.FindAction("Move");
-        moveAction.Enable();
+        if(moveAction!=null) moveAction.Enable();
         jumpAction = actions.FindAction("Jump"); // "Player/Jump"のようなパスも使える
-        jumpAction.Enable();
+        if (jumpAction != null) jumpAction.Enable();
         jumpAction.performed += OnJumpPerformed;
 
     }
