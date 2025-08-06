@@ -187,7 +187,7 @@ MonoBehaviour:
   isClearItemCount: 0
   GoalCount: 5
   goalPoint: 100
-  pointTextPrefab: {fileID: 0}
+  pointTextPrefab: {fileID: 3830516548507909071, guid: 47c7b3f90ec4fac48990c99a7e0f2e4d, type: 3}
 --- !u!95 &1268895424508143864
 Animator:
   serializedVersion: 7
