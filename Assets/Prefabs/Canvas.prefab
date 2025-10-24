@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acGameOver: {fileID: 0}
   acGameClear: {fileID: 0}
-  defaultSelectedButton: {fileID: 7499984304201988974}
+  defaultSelectedButton: {fileID: 8805436770101623050}
   scoreText: {fileID: 1184932049353232017}
   lifeText: {fileID: 6468412469916431039}
   stageScore: 0
